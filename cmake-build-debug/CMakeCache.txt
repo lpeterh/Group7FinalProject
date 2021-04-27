@@ -250,6 +250,12 @@ FinalProj_BINARY_DIR:STATIC=C:/Users/lphan/Desktop/Peter/RIT/Year 2/Spring/Adv P
 //Value Computed by CMake
 FinalProj_SOURCE_DIR:STATIC=C:/Users/lphan/Desktop/Peter/RIT/Year 2/Spring/Adv Prog/FinalProj
 
+//Value Computed by CMake
+Project_BINARY_DIR:STATIC=C:/Users/lphan/Desktop/Peter/RIT/Year 2/Spring/Adv Prog/FinalProj/cmake-build-debug
+
+//Value Computed by CMake
+Project_SOURCE_DIR:STATIC=C:/Users/lphan/Desktop/Peter/RIT/Year 2/Spring/Adv Prog/FinalProj
+
 
 ########################
 # INTERNAL cache entries

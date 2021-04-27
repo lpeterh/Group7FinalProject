@@ -1,7 +1,11 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/FinalProj.dir/Capacitor.cpp.obj"
   "CMakeFiles/FinalProj.dir/Element.cpp.obj"
   "CMakeFiles/FinalProj.dir/ISource.cpp.obj"
+  "CMakeFiles/FinalProj.dir/Inductor.cpp.obj"
+  "CMakeFiles/FinalProj.dir/Load.cpp.obj"
   "CMakeFiles/FinalProj.dir/Node.cpp.obj"
+  "CMakeFiles/FinalProj.dir/Resistor.cpp.obj"
   "CMakeFiles/FinalProj.dir/Source.cpp.obj"
   "CMakeFiles/FinalProj.dir/VSource.cpp.obj"
   "CMakeFiles/FinalProj.dir/main.cpp.obj"

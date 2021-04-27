@@ -141,6 +141,33 @@ FinalProj/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\FinalProj.dir\build.make CMakeFiles/FinalProj.dir/build
 .PHONY : FinalProj/fast
 
+Capacitor.obj: Capacitor.cpp.obj
+
+.PHONY : Capacitor.obj
+
+# target to build an object file
+Capacitor.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\FinalProj.dir\build.make CMakeFiles/FinalProj.dir/Capacitor.cpp.obj
+.PHONY : Capacitor.cpp.obj
+
+Capacitor.i: Capacitor.cpp.i
+
+.PHONY : Capacitor.i
+
+# target to preprocess a source file
+Capacitor.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\FinalProj.dir\build.make CMakeFiles/FinalProj.dir/Capacitor.cpp.i
+.PHONY : Capacitor.cpp.i
+
+Capacitor.s: Capacitor.cpp.s
+
+.PHONY : Capacitor.s
+
+# target to generate assembly for a file
+Capacitor.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\FinalProj.dir\build.make CMakeFiles/FinalProj.dir/Capacitor.cpp.s
+.PHONY : Capacitor.cpp.s
+
 Element.obj: Element.cpp.obj
 
 .PHONY : Element.obj
@@ -195,6 +222,60 @@ ISource.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\FinalProj.dir\build.make CMakeFiles/FinalProj.dir/ISource.cpp.s
 .PHONY : ISource.cpp.s
 
+Inductor.obj: Inductor.cpp.obj
+
+.PHONY : Inductor.obj
+
+# target to build an object file
+Inductor.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\FinalProj.dir\build.make CMakeFiles/FinalProj.dir/Inductor.cpp.obj
+.PHONY : Inductor.cpp.obj
+
+Inductor.i: Inductor.cpp.i
+
+.PHONY : Inductor.i
+
+# target to preprocess a source file
+Inductor.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\FinalProj.dir\build.make CMakeFiles/FinalProj.dir/Inductor.cpp.i
+.PHONY : Inductor.cpp.i
+
+Inductor.s: Inductor.cpp.s
+
+.PHONY : Inductor.s
+
+# target to generate assembly for a file
+Inductor.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\FinalProj.dir\build.make CMakeFiles/FinalProj.dir/Inductor.cpp.s
+.PHONY : Inductor.cpp.s
+
+Load.obj: Load.cpp.obj
+
+.PHONY : Load.obj
+
+# target to build an object file
+Load.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\FinalProj.dir\build.make CMakeFiles/FinalProj.dir/Load.cpp.obj
+.PHONY : Load.cpp.obj
+
+Load.i: Load.cpp.i
+
+.PHONY : Load.i
+
+# target to preprocess a source file
+Load.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\FinalProj.dir\build.make CMakeFiles/FinalProj.dir/Load.cpp.i
+.PHONY : Load.cpp.i
+
+Load.s: Load.cpp.s
+
+.PHONY : Load.s
+
+# target to generate assembly for a file
+Load.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\FinalProj.dir\build.make CMakeFiles/FinalProj.dir/Load.cpp.s
+.PHONY : Load.cpp.s
+
 Node.obj: Node.cpp.obj
 
 .PHONY : Node.obj
@@ -221,6 +302,33 @@ Node.s: Node.cpp.s
 Node.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\FinalProj.dir\build.make CMakeFiles/FinalProj.dir/Node.cpp.s
 .PHONY : Node.cpp.s
+
+Resistor.obj: Resistor.cpp.obj
+
+.PHONY : Resistor.obj
+
+# target to build an object file
+Resistor.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\FinalProj.dir\build.make CMakeFiles/FinalProj.dir/Resistor.cpp.obj
+.PHONY : Resistor.cpp.obj
+
+Resistor.i: Resistor.cpp.i
+
+.PHONY : Resistor.i
+
+# target to preprocess a source file
+Resistor.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\FinalProj.dir\build.make CMakeFiles/FinalProj.dir/Resistor.cpp.i
+.PHONY : Resistor.cpp.i
+
+Resistor.s: Resistor.cpp.s
+
+.PHONY : Resistor.s
+
+# target to generate assembly for a file
+Resistor.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\FinalProj.dir\build.make CMakeFiles/FinalProj.dir/Resistor.cpp.s
+.PHONY : Resistor.cpp.s
 
 Source.obj: Source.cpp.obj
 
@@ -312,15 +420,27 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... FinalProj
+	@echo ... Capacitor.obj
+	@echo ... Capacitor.i
+	@echo ... Capacitor.s
 	@echo ... Element.obj
 	@echo ... Element.i
 	@echo ... Element.s
 	@echo ... ISource.obj
 	@echo ... ISource.i
 	@echo ... ISource.s
+	@echo ... Inductor.obj
+	@echo ... Inductor.i
+	@echo ... Inductor.s
+	@echo ... Load.obj
+	@echo ... Load.i
+	@echo ... Load.s
 	@echo ... Node.obj
 	@echo ... Node.i
 	@echo ... Node.s
+	@echo ... Resistor.obj
+	@echo ... Resistor.i
+	@echo ... Resistor.s
 	@echo ... Source.obj
 	@echo ... Source.i
 	@echo ... Source.s

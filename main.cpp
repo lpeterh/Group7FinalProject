@@ -13,20 +13,41 @@ using namespace std;
 int main() {
 
     complex<double> complexV (10.0,2.0);
-    complex<double> complexI (5.0,1.0);
+    complex<double> complexI (5.0,1.0); // see if can input mag and angle
 
     Node A = Node("A");
     Node B = Node("B");
 
-    VSource v = VSource(A, B, complexV);
+    Source* source;
+    //auto dwnCstSource;
+    int voltage;
+    cin >> voltage;
 
-    ISource i = ISource(A, B, complexI);
 
-    v.print();
+    if (voltage == 1)
+    {
+        source = new VSource(A, B, complexV);
 
-    i.print();
 
-    cout << i.getNode1Name() << " -> " << i.getNode2Name() << endl; // new function? printNodeConnections()
+    }
+    else if (voltage == 0)
+    {
+        source = new ISource(A, B, complexI);
+    }
+
+
+
+    source->print();
+
+    //source = new VSource(A, B, complexV);
+    auto dwnCstSource = dynamic_cast<VSource*>(source);
+    dwnCstSource->setVoltage(5);
+
+    //i.print();
+
+    //cout << i.getNode1Name() << " -> " << i.getNode2Name() << endl; // new function? printNodeConnections()
+
+    delete source;
 
     return 0;
 }

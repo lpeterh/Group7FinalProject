@@ -6,6 +6,12 @@
 
 #IncludeRegexTransform: 
 
+C:/Users/lphan/Desktop/Peter/RIT/Year 2/Spring/Adv Prog/FinalProj/Capacitor.cpp
+Capacitor.h
+C:/Users/lphan/Desktop/Peter/RIT/Year 2/Spring/Adv Prog/FinalProj/Capacitor.h
+
+C:/Users/lphan/Desktop/Peter/RIT/Year 2/Spring/Adv Prog/FinalProj/Capacitor.h
+
 C:/Users/lphan/Desktop/Peter/RIT/Year 2/Spring/Adv Prog/FinalProj/Element.h
 string
 -
@@ -14,49 +20,27 @@ complex
 Node.h
 C:/Users/lphan/Desktop/Peter/RIT/Year 2/Spring/Adv Prog/FinalProj/Node.h
 
-C:/Users/lphan/Desktop/Peter/RIT/Year 2/Spring/Adv Prog/FinalProj/ISource.h
-string
--
-complex
--
-Source.h
-C:/Users/lphan/Desktop/Peter/RIT/Year 2/Spring/Adv Prog/FinalProj/Source.h
+C:/Users/lphan/Desktop/Peter/RIT/Year 2/Spring/Adv Prog/FinalProj/Inductor.cpp
+Inductor.h
+C:/Users/lphan/Desktop/Peter/RIT/Year 2/Spring/Adv Prog/FinalProj/Inductor.h
+
+C:/Users/lphan/Desktop/Peter/RIT/Year 2/Spring/Adv Prog/FinalProj/Inductor.h
+
+C:/Users/lphan/Desktop/Peter/RIT/Year 2/Spring/Adv Prog/FinalProj/Load.cpp
+Load.h
+C:/Users/lphan/Desktop/Peter/RIT/Year 2/Spring/Adv Prog/FinalProj/Load.h
+
+C:/Users/lphan/Desktop/Peter/RIT/Year 2/Spring/Adv Prog/FinalProj/Load.h
+Element.h
+C:/Users/lphan/Desktop/Peter/RIT/Year 2/Spring/Adv Prog/FinalProj/Element.h
 
 C:/Users/lphan/Desktop/Peter/RIT/Year 2/Spring/Adv Prog/FinalProj/Node.h
 string
 -
 
-C:/Users/lphan/Desktop/Peter/RIT/Year 2/Spring/Adv Prog/FinalProj/Source.h
-string
--
-complex
--
-Element.h
-C:/Users/lphan/Desktop/Peter/RIT/Year 2/Spring/Adv Prog/FinalProj/Element.h
+C:/Users/lphan/Desktop/Peter/RIT/Year 2/Spring/Adv Prog/FinalProj/Resistor.cpp
+Resistor.h
+C:/Users/lphan/Desktop/Peter/RIT/Year 2/Spring/Adv Prog/FinalProj/Resistor.h
 
-C:/Users/lphan/Desktop/Peter/RIT/Year 2/Spring/Adv Prog/FinalProj/VSource.h
-string
--
-complex
--
-Source.h
-C:/Users/lphan/Desktop/Peter/RIT/Year 2/Spring/Adv Prog/FinalProj/Source.h
-
-C:/Users/lphan/Desktop/Peter/RIT/Year 2/Spring/Adv Prog/FinalProj/main.cpp
-iostream
--
-string
--
-complex
--
-Node.h
-C:/Users/lphan/Desktop/Peter/RIT/Year 2/Spring/Adv Prog/FinalProj/Node.h
-Element.h
-C:/Users/lphan/Desktop/Peter/RIT/Year 2/Spring/Adv Prog/FinalProj/Element.h
-Source.h
-C:/Users/lphan/Desktop/Peter/RIT/Year 2/Spring/Adv Prog/FinalProj/Source.h
-VSource.h
-C:/Users/lphan/Desktop/Peter/RIT/Year 2/Spring/Adv Prog/FinalProj/VSource.h
-ISource.h
-C:/Users/lphan/Desktop/Peter/RIT/Year 2/Spring/Adv Prog/FinalProj/ISource.h
+C:/Users/lphan/Desktop/Peter/RIT/Year 2/Spring/Adv Prog/FinalProj/Resistor.h
 

@@ -80,6 +80,12 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="C:/Users/lphan/Desktop/Peter/RIT/Year 2/Spring/Adv Prog/FinalProj/Capacitor.cpp">
+			<Option target="FinalProj"/>
+		</Unit>
+		<Unit filename="C:/Users/lphan/Desktop/Peter/RIT/Year 2/Spring/Adv Prog/FinalProj/Capacitor.h">
+			<Option target="FinalProj"/>
+		</Unit>
 		<Unit filename="C:/Users/lphan/Desktop/Peter/RIT/Year 2/Spring/Adv Prog/FinalProj/Element.cpp">
 			<Option target="FinalProj"/>
 		</Unit>
@@ -92,10 +98,28 @@
 		<Unit filename="C:/Users/lphan/Desktop/Peter/RIT/Year 2/Spring/Adv Prog/FinalProj/ISource.h">
 			<Option target="FinalProj"/>
 		</Unit>
+		<Unit filename="C:/Users/lphan/Desktop/Peter/RIT/Year 2/Spring/Adv Prog/FinalProj/Inductor.cpp">
+			<Option target="FinalProj"/>
+		</Unit>
+		<Unit filename="C:/Users/lphan/Desktop/Peter/RIT/Year 2/Spring/Adv Prog/FinalProj/Inductor.h">
+			<Option target="FinalProj"/>
+		</Unit>
+		<Unit filename="C:/Users/lphan/Desktop/Peter/RIT/Year 2/Spring/Adv Prog/FinalProj/Load.cpp">
+			<Option target="FinalProj"/>
+		</Unit>
+		<Unit filename="C:/Users/lphan/Desktop/Peter/RIT/Year 2/Spring/Adv Prog/FinalProj/Load.h">
+			<Option target="FinalProj"/>
+		</Unit>
 		<Unit filename="C:/Users/lphan/Desktop/Peter/RIT/Year 2/Spring/Adv Prog/FinalProj/Node.cpp">
 			<Option target="FinalProj"/>
 		</Unit>
 		<Unit filename="C:/Users/lphan/Desktop/Peter/RIT/Year 2/Spring/Adv Prog/FinalProj/Node.h">
+			<Option target="FinalProj"/>
+		</Unit>
+		<Unit filename="C:/Users/lphan/Desktop/Peter/RIT/Year 2/Spring/Adv Prog/FinalProj/Resistor.cpp">
+			<Option target="FinalProj"/>
+		</Unit>
+		<Unit filename="C:/Users/lphan/Desktop/Peter/RIT/Year 2/Spring/Adv Prog/FinalProj/Resistor.h">
 			<Option target="FinalProj"/>
 		</Unit>
 		<Unit filename="C:/Users/lphan/Desktop/Peter/RIT/Year 2/Spring/Adv Prog/FinalProj/Source.cpp">
