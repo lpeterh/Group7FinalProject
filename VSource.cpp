@@ -10,7 +10,9 @@ const std::string VSource::SOURCETYPE = "Voltage Source";
 // ---------------------------------
 VSource::VSource(Node n1, Node n2, std::complex<double> V)
     : forcedVoltage(V), Source(SOURCETYPE, n1, n2, V, 0)
-{ }
+{
+    goodV = true;
+}
 
 // ----------------------------
 // ---------- Getter ----------
@@ -40,7 +42,6 @@ void VSource::print()
     std::cout << "  Magnitude -- " << std::abs(this->forcedVoltage) << " V" << std::endl;
     std::cout << "  Angle ------ " <<  std::arg(this->forcedVoltage) << " rad" << std::endl;
     std::cout << std::string(barNum, '-') << std::endl;
-    std::cout << std::fixed << std::setprecision(3);
     std::cout.unsetf(std::ios_base::floatfield);
 }
 

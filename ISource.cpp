@@ -40,6 +40,5 @@ void ISource::print()
     std::cout << "  Magnitude -- " << std::abs(this->forcedCurrent) << " A" << std::endl;
     std::cout << "  Angle ------ " <<  std::arg(this->forcedCurrent) << " rad" << std::endl;
     std::cout << std::string(barNum, '-') << std::endl;
-    std::cout << std::fixed << std::setprecision(3);
     std::cout.unsetf(std::ios_base::floatfield);
 }

@@ -61,3 +61,12 @@ void Element::setCurrentThrough(std::complex<double> newI)
 {
     (this->currentThrough) = newI;
 }
+
+void Element::setVGood(bool check)
+{
+    (this->goodV) = check;
+}
+void Element::setAGood(bool check)
+{
+    (this->goodA) = check;
+}

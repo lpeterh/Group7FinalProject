@@ -1,8 +1,27 @@
-//
-// Created by lphan on 4/27/2021.
-//
+#ifndef INDUCTOR_H
+#define INDUCTOR_H
 
-#ifndef MAIN_CPP_INDUCTOR_H
-#define MAIN_CPP_INDUCTOR_H
+#include "Load.h"
 
-#endif //MAIN_CPP_INDUCTOR_H
+class Inductor : public Load
+{
+public:
+    // Constructor
+    Inductor(Node n1, Node n2, double l);
+
+    // Getter
+    double getInductance();
+
+    // Setter
+    void setInductance(double newL);
+
+    // Print
+    void print();
+
+
+private:
+    double inductance;
+
+};
+
+#endif

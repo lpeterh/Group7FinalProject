@@ -6,6 +6,9 @@
 
 #include "Node.h"
 
+extern double OMEGA; // allows any file that includes this one (all inheritance) to get this value
+                     // the Extern says it is defined elsewhere (in main)
+
 class Element
 {
 public:
@@ -21,6 +24,8 @@ public:
     std::complex<double> getVoltageAcross();
     std::complex<double> getCurrentThrough();
 
+    bool isVGood();
+    bool isAGood();
 
     // Setters
     void setElementName(std::string newElementName);
@@ -30,6 +35,9 @@ public:
 
     void setVoltageAcross(std::complex<double> newV);
     void setCurrentThrough(std::complex<double> newI);
+
+    void setVGood(bool check);
+    void setAGood(bool check);
 
     // Purely virtual print function to be defined later
     virtual void print() = 0;
@@ -42,6 +50,9 @@ protected:
 
     std::complex<double> voltageAcross;
     std::complex<double> currentThrough;
+
+    bool goodV = false;
+    bool goodA = false;
 
 };
 

@@ -1,8 +1,27 @@
-//
-// Created by lphan on 4/27/2021.
-//
+#ifndef CAPACITOR_H
+#define CAPACITOR_H
 
-#ifndef MAIN_CPP_CAPACITOR_H
-#define MAIN_CPP_CAPACITOR_H
+#include "Load.h"
 
-#endif //MAIN_CPP_CAPACITOR_H
+class Capacitor : public Load
+{
+public:
+    // Constructor
+    Capacitor(Node n1, Node n2, double c);
+
+    // Getter
+    double getCapacitance();
+
+    // Setter
+    void setCapacitance(double newC);
+
+    // Print
+    void print();
+
+
+private:
+    double capacitance;
+
+};
+
+#endif

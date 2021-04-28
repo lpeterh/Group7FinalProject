@@ -1,8 +1,31 @@
-//
-// Created by lphan on 4/27/2021.
-//
+#ifndef RESISTOR_H
+#define RESISTOR_H
 
-#ifndef MAIN_CPP_RESISTOR_H
-#define MAIN_CPP_RESISTOR_H
+#include "Load.h"
 
-#endif //MAIN_CPP_RESISTOR_H
+class Resistor : public Load
+{
+public:
+    // Constructor
+    Resistor(Node n1, Node n2, double r);
+
+    // Getter
+    double getResistance();
+
+    // Setter
+    void setResistance(double newR);
+
+    // Print
+    void print();
+
+
+private:
+    double resistance;
+
+
+};
+
+
+
+
+#endif
