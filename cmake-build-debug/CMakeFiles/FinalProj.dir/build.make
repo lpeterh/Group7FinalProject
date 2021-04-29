@@ -205,6 +205,45 @@ CMakeFiles/FinalProj.dir/Inductor.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/FinalProj.dir/Inductor.cpp.s"
 	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\lphan\Desktop\Peter\RIT\Year 2\Spring\Adv Prog\FinalProj\Inductor.cpp" -o CMakeFiles\FinalProj.dir\Inductor.cpp.s
 
+CMakeFiles/FinalProj.dir/JuniorWork.cpp.obj: CMakeFiles/FinalProj.dir/flags.make
+CMakeFiles/FinalProj.dir/JuniorWork.cpp.obj: ../JuniorWork.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\lphan\Desktop\Peter\RIT\Year 2\Spring\Adv Prog\FinalProj\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/FinalProj.dir/JuniorWork.cpp.obj"
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\FinalProj.dir\JuniorWork.cpp.obj -c "C:\Users\lphan\Desktop\Peter\RIT\Year 2\Spring\Adv Prog\FinalProj\JuniorWork.cpp"
+
+CMakeFiles/FinalProj.dir/JuniorWork.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/FinalProj.dir/JuniorWork.cpp.i"
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\lphan\Desktop\Peter\RIT\Year 2\Spring\Adv Prog\FinalProj\JuniorWork.cpp" > CMakeFiles\FinalProj.dir\JuniorWork.cpp.i
+
+CMakeFiles/FinalProj.dir/JuniorWork.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/FinalProj.dir/JuniorWork.cpp.s"
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\lphan\Desktop\Peter\RIT\Year 2\Spring\Adv Prog\FinalProj\JuniorWork.cpp" -o CMakeFiles\FinalProj.dir\JuniorWork.cpp.s
+
+CMakeFiles/FinalProj.dir/EWork.cpp.obj: CMakeFiles/FinalProj.dir/flags.make
+CMakeFiles/FinalProj.dir/EWork.cpp.obj: ../EWork.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\lphan\Desktop\Peter\RIT\Year 2\Spring\Adv Prog\FinalProj\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/FinalProj.dir/EWork.cpp.obj"
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\FinalProj.dir\EWork.cpp.obj -c "C:\Users\lphan\Desktop\Peter\RIT\Year 2\Spring\Adv Prog\FinalProj\EWork.cpp"
+
+CMakeFiles/FinalProj.dir/EWork.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/FinalProj.dir/EWork.cpp.i"
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\lphan\Desktop\Peter\RIT\Year 2\Spring\Adv Prog\FinalProj\EWork.cpp" > CMakeFiles\FinalProj.dir\EWork.cpp.i
+
+CMakeFiles/FinalProj.dir/EWork.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/FinalProj.dir/EWork.cpp.s"
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\lphan\Desktop\Peter\RIT\Year 2\Spring\Adv Prog\FinalProj\EWork.cpp" -o CMakeFiles\FinalProj.dir\EWork.cpp.s
+
+CMakeFiles/FinalProj.dir/PeterWork.cpp.obj: CMakeFiles/FinalProj.dir/flags.make
+CMakeFiles/FinalProj.dir/PeterWork.cpp.obj: ../PeterWork.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\lphan\Desktop\Peter\RIT\Year 2\Spring\Adv Prog\FinalProj\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/FinalProj.dir/PeterWork.cpp.obj"
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\FinalProj.dir\PeterWork.cpp.obj -c "C:\Users\lphan\Desktop\Peter\RIT\Year 2\Spring\Adv Prog\FinalProj\PeterWork.cpp"
+
+CMakeFiles/FinalProj.dir/PeterWork.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/FinalProj.dir/PeterWork.cpp.i"
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\lphan\Desktop\Peter\RIT\Year 2\Spring\Adv Prog\FinalProj\PeterWork.cpp" > CMakeFiles\FinalProj.dir\PeterWork.cpp.i
+
+CMakeFiles/FinalProj.dir/PeterWork.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/FinalProj.dir/PeterWork.cpp.s"
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\lphan\Desktop\Peter\RIT\Year 2\Spring\Adv Prog\FinalProj\PeterWork.cpp" -o CMakeFiles\FinalProj.dir\PeterWork.cpp.s
+
 # Object files for target FinalProj
 FinalProj_OBJECTS = \
 "CMakeFiles/FinalProj.dir/main.cpp.obj" \
@@ -216,7 +255,10 @@ FinalProj_OBJECTS = \
 "CMakeFiles/FinalProj.dir/Load.cpp.obj" \
 "CMakeFiles/FinalProj.dir/Resistor.cpp.obj" \
 "CMakeFiles/FinalProj.dir/Capacitor.cpp.obj" \
-"CMakeFiles/FinalProj.dir/Inductor.cpp.obj"
+"CMakeFiles/FinalProj.dir/Inductor.cpp.obj" \
+"CMakeFiles/FinalProj.dir/JuniorWork.cpp.obj" \
+"CMakeFiles/FinalProj.dir/EWork.cpp.obj" \
+"CMakeFiles/FinalProj.dir/PeterWork.cpp.obj"
 
 # External object files for target FinalProj
 FinalProj_EXTERNAL_OBJECTS =
@@ -231,11 +273,14 @@ FinalProj.exe: CMakeFiles/FinalProj.dir/Load.cpp.obj
 FinalProj.exe: CMakeFiles/FinalProj.dir/Resistor.cpp.obj
 FinalProj.exe: CMakeFiles/FinalProj.dir/Capacitor.cpp.obj
 FinalProj.exe: CMakeFiles/FinalProj.dir/Inductor.cpp.obj
+FinalProj.exe: CMakeFiles/FinalProj.dir/JuniorWork.cpp.obj
+FinalProj.exe: CMakeFiles/FinalProj.dir/EWork.cpp.obj
+FinalProj.exe: CMakeFiles/FinalProj.dir/PeterWork.cpp.obj
 FinalProj.exe: CMakeFiles/FinalProj.dir/build.make
 FinalProj.exe: CMakeFiles/FinalProj.dir/linklibs.rsp
 FinalProj.exe: CMakeFiles/FinalProj.dir/objects1.rsp
 FinalProj.exe: CMakeFiles/FinalProj.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="C:\Users\lphan\Desktop\Peter\RIT\Year 2\Spring\Adv Prog\FinalProj\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_11) "Linking CXX executable FinalProj.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="C:\Users\lphan\Desktop\Peter\RIT\Year 2\Spring\Adv Prog\FinalProj\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_14) "Linking CXX executable FinalProj.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\FinalProj.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

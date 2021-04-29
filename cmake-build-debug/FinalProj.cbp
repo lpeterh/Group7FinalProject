@@ -86,6 +86,9 @@
 		<Unit filename="C:/Users/lphan/Desktop/Peter/RIT/Year 2/Spring/Adv Prog/FinalProj/Capacitor.h">
 			<Option target="FinalProj"/>
 		</Unit>
+		<Unit filename="C:/Users/lphan/Desktop/Peter/RIT/Year 2/Spring/Adv Prog/FinalProj/EWork.cpp">
+			<Option target="FinalProj"/>
+		</Unit>
 		<Unit filename="C:/Users/lphan/Desktop/Peter/RIT/Year 2/Spring/Adv Prog/FinalProj/Element.cpp">
 			<Option target="FinalProj"/>
 		</Unit>
@@ -104,6 +107,9 @@
 		<Unit filename="C:/Users/lphan/Desktop/Peter/RIT/Year 2/Spring/Adv Prog/FinalProj/Inductor.h">
 			<Option target="FinalProj"/>
 		</Unit>
+		<Unit filename="C:/Users/lphan/Desktop/Peter/RIT/Year 2/Spring/Adv Prog/FinalProj/JuniorWork.cpp">
+			<Option target="FinalProj"/>
+		</Unit>
 		<Unit filename="C:/Users/lphan/Desktop/Peter/RIT/Year 2/Spring/Adv Prog/FinalProj/Load.cpp">
 			<Option target="FinalProj"/>
 		</Unit>
@@ -114,6 +120,9 @@
 			<Option target="FinalProj"/>
 		</Unit>
 		<Unit filename="C:/Users/lphan/Desktop/Peter/RIT/Year 2/Spring/Adv Prog/FinalProj/Node.h">
+			<Option target="FinalProj"/>
+		</Unit>
+		<Unit filename="C:/Users/lphan/Desktop/Peter/RIT/Year 2/Spring/Adv Prog/FinalProj/PeterWork.cpp">
 			<Option target="FinalProj"/>
 		</Unit>
 		<Unit filename="C:/Users/lphan/Desktop/Peter/RIT/Year 2/Spring/Adv Prog/FinalProj/Resistor.cpp">

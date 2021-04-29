@@ -5,7 +5,10 @@
 // ---------------------------------
 Element::Element(std::string EName, Node n1, Node n2, std::complex<double> V, std::complex<double> I)
     : elementName(EName), node1(n1), node2(n2), voltageAcross(V), currentThrough(I)
-{ }
+{
+    nodes[0] = this->getNode1Name();
+    nodes[1] = this->getNode2Name();
+}
 
 // -----------------------------
 // ---------- Getters ----------
@@ -22,6 +25,11 @@ std::string Element::getNode1Name()
 std::string Element::getNode2Name()
 {
     return (node2.getName());
+}
+
+std::string* Element::getNodes()
+{
+    return nodes;
 }
 
 std::complex<double> Element::getVoltageAcross()

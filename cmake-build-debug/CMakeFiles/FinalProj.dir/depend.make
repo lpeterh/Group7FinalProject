@@ -7,6 +7,8 @@ CMakeFiles/FinalProj.dir/Capacitor.cpp.obj: ../Element.h
 CMakeFiles/FinalProj.dir/Capacitor.cpp.obj: ../Load.h
 CMakeFiles/FinalProj.dir/Capacitor.cpp.obj: ../Node.h
 
+CMakeFiles/FinalProj.dir/EWork.cpp.obj: ../EWork.cpp
+
 CMakeFiles/FinalProj.dir/Element.cpp.obj: ../Element.cpp
 CMakeFiles/FinalProj.dir/Element.cpp.obj: ../Element.h
 CMakeFiles/FinalProj.dir/Element.cpp.obj: ../Node.h
@@ -23,6 +25,8 @@ CMakeFiles/FinalProj.dir/Inductor.cpp.obj: ../Inductor.h
 CMakeFiles/FinalProj.dir/Inductor.cpp.obj: ../Load.h
 CMakeFiles/FinalProj.dir/Inductor.cpp.obj: ../Node.h
 
+CMakeFiles/FinalProj.dir/JuniorWork.cpp.obj: ../JuniorWork.cpp
+
 CMakeFiles/FinalProj.dir/Load.cpp.obj: ../Element.h
 CMakeFiles/FinalProj.dir/Load.cpp.obj: ../Load.cpp
 CMakeFiles/FinalProj.dir/Load.cpp.obj: ../Load.h
@@ -30,6 +34,8 @@ CMakeFiles/FinalProj.dir/Load.cpp.obj: ../Node.h
 
 CMakeFiles/FinalProj.dir/Node.cpp.obj: ../Node.cpp
 CMakeFiles/FinalProj.dir/Node.cpp.obj: ../Node.h
+
+CMakeFiles/FinalProj.dir/PeterWork.cpp.obj: ../PeterWork.cpp
 
 CMakeFiles/FinalProj.dir/Resistor.cpp.obj: ../Element.h
 CMakeFiles/FinalProj.dir/Resistor.cpp.obj: ../Load.h

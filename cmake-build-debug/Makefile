@@ -168,6 +168,33 @@ Capacitor.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\FinalProj.dir\build.make CMakeFiles/FinalProj.dir/Capacitor.cpp.s
 .PHONY : Capacitor.cpp.s
 
+EWork.obj: EWork.cpp.obj
+
+.PHONY : EWork.obj
+
+# target to build an object file
+EWork.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\FinalProj.dir\build.make CMakeFiles/FinalProj.dir/EWork.cpp.obj
+.PHONY : EWork.cpp.obj
+
+EWork.i: EWork.cpp.i
+
+.PHONY : EWork.i
+
+# target to preprocess a source file
+EWork.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\FinalProj.dir\build.make CMakeFiles/FinalProj.dir/EWork.cpp.i
+.PHONY : EWork.cpp.i
+
+EWork.s: EWork.cpp.s
+
+.PHONY : EWork.s
+
+# target to generate assembly for a file
+EWork.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\FinalProj.dir\build.make CMakeFiles/FinalProj.dir/EWork.cpp.s
+.PHONY : EWork.cpp.s
+
 Element.obj: Element.cpp.obj
 
 .PHONY : Element.obj
@@ -249,6 +276,33 @@ Inductor.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\FinalProj.dir\build.make CMakeFiles/FinalProj.dir/Inductor.cpp.s
 .PHONY : Inductor.cpp.s
 
+JuniorWork.obj: JuniorWork.cpp.obj
+
+.PHONY : JuniorWork.obj
+
+# target to build an object file
+JuniorWork.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\FinalProj.dir\build.make CMakeFiles/FinalProj.dir/JuniorWork.cpp.obj
+.PHONY : JuniorWork.cpp.obj
+
+JuniorWork.i: JuniorWork.cpp.i
+
+.PHONY : JuniorWork.i
+
+# target to preprocess a source file
+JuniorWork.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\FinalProj.dir\build.make CMakeFiles/FinalProj.dir/JuniorWork.cpp.i
+.PHONY : JuniorWork.cpp.i
+
+JuniorWork.s: JuniorWork.cpp.s
+
+.PHONY : JuniorWork.s
+
+# target to generate assembly for a file
+JuniorWork.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\FinalProj.dir\build.make CMakeFiles/FinalProj.dir/JuniorWork.cpp.s
+.PHONY : JuniorWork.cpp.s
+
 Load.obj: Load.cpp.obj
 
 .PHONY : Load.obj
@@ -302,6 +356,33 @@ Node.s: Node.cpp.s
 Node.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\FinalProj.dir\build.make CMakeFiles/FinalProj.dir/Node.cpp.s
 .PHONY : Node.cpp.s
+
+PeterWork.obj: PeterWork.cpp.obj
+
+.PHONY : PeterWork.obj
+
+# target to build an object file
+PeterWork.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\FinalProj.dir\build.make CMakeFiles/FinalProj.dir/PeterWork.cpp.obj
+.PHONY : PeterWork.cpp.obj
+
+PeterWork.i: PeterWork.cpp.i
+
+.PHONY : PeterWork.i
+
+# target to preprocess a source file
+PeterWork.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\FinalProj.dir\build.make CMakeFiles/FinalProj.dir/PeterWork.cpp.i
+.PHONY : PeterWork.cpp.i
+
+PeterWork.s: PeterWork.cpp.s
+
+.PHONY : PeterWork.s
+
+# target to generate assembly for a file
+PeterWork.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\FinalProj.dir\build.make CMakeFiles/FinalProj.dir/PeterWork.cpp.s
+.PHONY : PeterWork.cpp.s
 
 Resistor.obj: Resistor.cpp.obj
 
@@ -423,6 +504,9 @@ help:
 	@echo ... Capacitor.obj
 	@echo ... Capacitor.i
 	@echo ... Capacitor.s
+	@echo ... EWork.obj
+	@echo ... EWork.i
+	@echo ... EWork.s
 	@echo ... Element.obj
 	@echo ... Element.i
 	@echo ... Element.s
@@ -432,12 +516,18 @@ help:
 	@echo ... Inductor.obj
 	@echo ... Inductor.i
 	@echo ... Inductor.s
+	@echo ... JuniorWork.obj
+	@echo ... JuniorWork.i
+	@echo ... JuniorWork.s
 	@echo ... Load.obj
 	@echo ... Load.i
 	@echo ... Load.s
 	@echo ... Node.obj
 	@echo ... Node.i
 	@echo ... Node.s
+	@echo ... PeterWork.obj
+	@echo ... PeterWork.i
+	@echo ... PeterWork.s
 	@echo ... Resistor.obj
 	@echo ... Resistor.i
 	@echo ... Resistor.s

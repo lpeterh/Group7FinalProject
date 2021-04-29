@@ -5,11 +5,14 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
   "C:/Users/lphan/Desktop/Peter/RIT/Year 2/Spring/Adv Prog/FinalProj/Capacitor.cpp" "C:/Users/lphan/Desktop/Peter/RIT/Year 2/Spring/Adv Prog/FinalProj/cmake-build-debug/CMakeFiles/FinalProj.dir/Capacitor.cpp.obj"
+  "C:/Users/lphan/Desktop/Peter/RIT/Year 2/Spring/Adv Prog/FinalProj/EWork.cpp" "C:/Users/lphan/Desktop/Peter/RIT/Year 2/Spring/Adv Prog/FinalProj/cmake-build-debug/CMakeFiles/FinalProj.dir/EWork.cpp.obj"
   "C:/Users/lphan/Desktop/Peter/RIT/Year 2/Spring/Adv Prog/FinalProj/Element.cpp" "C:/Users/lphan/Desktop/Peter/RIT/Year 2/Spring/Adv Prog/FinalProj/cmake-build-debug/CMakeFiles/FinalProj.dir/Element.cpp.obj"
   "C:/Users/lphan/Desktop/Peter/RIT/Year 2/Spring/Adv Prog/FinalProj/ISource.cpp" "C:/Users/lphan/Desktop/Peter/RIT/Year 2/Spring/Adv Prog/FinalProj/cmake-build-debug/CMakeFiles/FinalProj.dir/ISource.cpp.obj"
   "C:/Users/lphan/Desktop/Peter/RIT/Year 2/Spring/Adv Prog/FinalProj/Inductor.cpp" "C:/Users/lphan/Desktop/Peter/RIT/Year 2/Spring/Adv Prog/FinalProj/cmake-build-debug/CMakeFiles/FinalProj.dir/Inductor.cpp.obj"
+  "C:/Users/lphan/Desktop/Peter/RIT/Year 2/Spring/Adv Prog/FinalProj/JuniorWork.cpp" "C:/Users/lphan/Desktop/Peter/RIT/Year 2/Spring/Adv Prog/FinalProj/cmake-build-debug/CMakeFiles/FinalProj.dir/JuniorWork.cpp.obj"
   "C:/Users/lphan/Desktop/Peter/RIT/Year 2/Spring/Adv Prog/FinalProj/Load.cpp" "C:/Users/lphan/Desktop/Peter/RIT/Year 2/Spring/Adv Prog/FinalProj/cmake-build-debug/CMakeFiles/FinalProj.dir/Load.cpp.obj"
   "C:/Users/lphan/Desktop/Peter/RIT/Year 2/Spring/Adv Prog/FinalProj/Node.cpp" "C:/Users/lphan/Desktop/Peter/RIT/Year 2/Spring/Adv Prog/FinalProj/cmake-build-debug/CMakeFiles/FinalProj.dir/Node.cpp.obj"
+  "C:/Users/lphan/Desktop/Peter/RIT/Year 2/Spring/Adv Prog/FinalProj/PeterWork.cpp" "C:/Users/lphan/Desktop/Peter/RIT/Year 2/Spring/Adv Prog/FinalProj/cmake-build-debug/CMakeFiles/FinalProj.dir/PeterWork.cpp.obj"
   "C:/Users/lphan/Desktop/Peter/RIT/Year 2/Spring/Adv Prog/FinalProj/Resistor.cpp" "C:/Users/lphan/Desktop/Peter/RIT/Year 2/Spring/Adv Prog/FinalProj/cmake-build-debug/CMakeFiles/FinalProj.dir/Resistor.cpp.obj"
   "C:/Users/lphan/Desktop/Peter/RIT/Year 2/Spring/Adv Prog/FinalProj/Source.cpp" "C:/Users/lphan/Desktop/Peter/RIT/Year 2/Spring/Adv Prog/FinalProj/cmake-build-debug/CMakeFiles/FinalProj.dir/Source.cpp.obj"
   "C:/Users/lphan/Desktop/Peter/RIT/Year 2/Spring/Adv Prog/FinalProj/VSource.cpp" "C:/Users/lphan/Desktop/Peter/RIT/Year 2/Spring/Adv Prog/FinalProj/cmake-build-debug/CMakeFiles/FinalProj.dir/VSource.cpp.obj"

@@ -21,6 +21,9 @@ public:
     std::string getNode1Name();
     std::string getNode2Name();
 
+    std::string* getNodes();
+
+
     std::complex<double> getVoltageAcross();
     std::complex<double> getCurrentThrough();
 
@@ -47,6 +50,8 @@ protected:
 
     Node node1;
     Node node2;
+
+    std::string nodes[2];
 
     std::complex<double> voltageAcross;
     std::complex<double> currentThrough;
