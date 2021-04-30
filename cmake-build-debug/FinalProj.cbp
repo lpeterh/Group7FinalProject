@@ -143,6 +143,12 @@
 		<Unit filename="C:/Users/lphan/Desktop/Peter/RIT/Year 2/Spring/Adv Prog/FinalProj/VSource.h">
 			<Option target="FinalProj"/>
 		</Unit>
+		<Unit filename="C:/Users/lphan/Desktop/Peter/RIT/Year 2/Spring/Adv Prog/FinalProj/helperFunctions.cpp">
+			<Option target="FinalProj"/>
+		</Unit>
+		<Unit filename="C:/Users/lphan/Desktop/Peter/RIT/Year 2/Spring/Adv Prog/FinalProj/helperFunctions.h">
+			<Option target="FinalProj"/>
+		</Unit>
 		<Unit filename="C:/Users/lphan/Desktop/Peter/RIT/Year 2/Spring/Adv Prog/FinalProj/main.cpp">
 			<Option target="FinalProj"/>
 		</Unit>

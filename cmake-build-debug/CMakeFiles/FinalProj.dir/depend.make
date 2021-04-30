@@ -54,6 +54,12 @@ CMakeFiles/FinalProj.dir/VSource.cpp.obj: ../Source.h
 CMakeFiles/FinalProj.dir/VSource.cpp.obj: ../VSource.cpp
 CMakeFiles/FinalProj.dir/VSource.cpp.obj: ../VSource.h
 
+CMakeFiles/FinalProj.dir/helperFunctions.cpp.obj: ../Element.h
+CMakeFiles/FinalProj.dir/helperFunctions.cpp.obj: ../Load.h
+CMakeFiles/FinalProj.dir/helperFunctions.cpp.obj: ../Node.h
+CMakeFiles/FinalProj.dir/helperFunctions.cpp.obj: ../helperFunctions.cpp
+CMakeFiles/FinalProj.dir/helperFunctions.cpp.obj: ../helperFunctions.h
+
 CMakeFiles/FinalProj.dir/main.cpp.obj: ../Capacitor.h
 CMakeFiles/FinalProj.dir/main.cpp.obj: ../Element.h
 CMakeFiles/FinalProj.dir/main.cpp.obj: ../ISource.h
@@ -63,5 +69,6 @@ CMakeFiles/FinalProj.dir/main.cpp.obj: ../Node.h
 CMakeFiles/FinalProj.dir/main.cpp.obj: ../Resistor.h
 CMakeFiles/FinalProj.dir/main.cpp.obj: ../Source.h
 CMakeFiles/FinalProj.dir/main.cpp.obj: ../VSource.h
+CMakeFiles/FinalProj.dir/main.cpp.obj: ../helperFunctions.h
 CMakeFiles/FinalProj.dir/main.cpp.obj: ../main.cpp
 

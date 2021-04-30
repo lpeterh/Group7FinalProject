@@ -465,6 +465,33 @@ VSource.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\FinalProj.dir\build.make CMakeFiles/FinalProj.dir/VSource.cpp.s
 .PHONY : VSource.cpp.s
 
+helperFunctions.obj: helperFunctions.cpp.obj
+
+.PHONY : helperFunctions.obj
+
+# target to build an object file
+helperFunctions.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\FinalProj.dir\build.make CMakeFiles/FinalProj.dir/helperFunctions.cpp.obj
+.PHONY : helperFunctions.cpp.obj
+
+helperFunctions.i: helperFunctions.cpp.i
+
+.PHONY : helperFunctions.i
+
+# target to preprocess a source file
+helperFunctions.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\FinalProj.dir\build.make CMakeFiles/FinalProj.dir/helperFunctions.cpp.i
+.PHONY : helperFunctions.cpp.i
+
+helperFunctions.s: helperFunctions.cpp.s
+
+.PHONY : helperFunctions.s
+
+# target to generate assembly for a file
+helperFunctions.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\FinalProj.dir\build.make CMakeFiles/FinalProj.dir/helperFunctions.cpp.s
+.PHONY : helperFunctions.cpp.s
+
 main.obj: main.cpp.obj
 
 .PHONY : main.obj
@@ -537,6 +564,9 @@ help:
 	@echo ... VSource.obj
 	@echo ... VSource.i
 	@echo ... VSource.s
+	@echo ... helperFunctions.obj
+	@echo ... helperFunctions.i
+	@echo ... helperFunctions.s
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s

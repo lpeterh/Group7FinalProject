@@ -11,6 +11,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/FinalProj.dir/Resistor.cpp.obj"
   "CMakeFiles/FinalProj.dir/Source.cpp.obj"
   "CMakeFiles/FinalProj.dir/VSource.cpp.obj"
+  "CMakeFiles/FinalProj.dir/helperFunctions.cpp.obj"
   "CMakeFiles/FinalProj.dir/main.cpp.obj"
   "FinalProj.exe"
   "FinalProj.exe.manifest"
