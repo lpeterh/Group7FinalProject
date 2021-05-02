@@ -80,10 +80,19 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="C:/Users/lphan/Desktop/Peter/RIT/Year 2/Spring/Adv Prog/FinalProj/Analysis.cpp">
+			<Option target="FinalProj"/>
+		</Unit>
+		<Unit filename="C:/Users/lphan/Desktop/Peter/RIT/Year 2/Spring/Adv Prog/FinalProj/Analysis.h">
+			<Option target="FinalProj"/>
+		</Unit>
 		<Unit filename="C:/Users/lphan/Desktop/Peter/RIT/Year 2/Spring/Adv Prog/FinalProj/Capacitor.cpp">
 			<Option target="FinalProj"/>
 		</Unit>
 		<Unit filename="C:/Users/lphan/Desktop/Peter/RIT/Year 2/Spring/Adv Prog/FinalProj/Capacitor.h">
+			<Option target="FinalProj"/>
+		</Unit>
+		<Unit filename="C:/Users/lphan/Desktop/Peter/RIT/Year 2/Spring/Adv Prog/FinalProj/Circuit.h">
 			<Option target="FinalProj"/>
 		</Unit>
 		<Unit filename="C:/Users/lphan/Desktop/Peter/RIT/Year 2/Spring/Adv Prog/FinalProj/EWork.cpp">

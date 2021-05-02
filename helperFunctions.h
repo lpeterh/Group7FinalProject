@@ -13,6 +13,12 @@
 using namespace std;
 
 
+void printLoadMap(multimap< string*, Load > loadMap);
+
+
+
+
+
 
 
 
@@ -47,8 +53,7 @@ void getLoad(unsigned loadNum, list<unique_ptr<Node>>& nodeList, list<unique_ptr
         cout << "Enter Second Nodes Name:";
         cin >> node2Name;
 
-        for (nodeListItr = nodeList.begin();
-             nodeListItr != nodeList.end(); nodeListItr++) // get the node for node 1 repeat for node 2
+        for (nodeListItr = nodeList.begin(); nodeListItr != nodeList.end(); nodeListItr++) // get the node for node 1 repeat for node 2
         {
             if (node1Name == (*nodeListItr)->getName()) {
                 node1.setName(node1Name);
@@ -67,6 +72,42 @@ void getLoad(unsigned loadNum, list<unique_ptr<Node>>& nodeList, list<unique_ptr
         num_copy++;
     }
 }
+/* ORIGINAL: DO NOT REMOVE
+    while(resNum_copy < resNum)
+    {
+        node1.setName(" "); // Reset the names to ensure they aren't carried over
+        node2.setName(" ");
+
+        cout << "Enter Resistance:";
+        cin >> resistance;
+
+        cout << "Enter First Nodes Name:";
+        cin >> node1Name;
+
+        cout << "Enter Second Nodes Name:";
+        cin >> node2Name;
+
+        for( nodeListItr = nodeList.begin() ;nodeListItr != nodeList.end(); nodeListItr++) // get the node for node 1 repeat for node 2
+        {
+            if (node1Name == (*nodeListItr)->getName() )
+            {
+                node1.setName(node1Name);
+            }
+            if (node2Name == (*nodeListItr)->getName() )
+            {
+                node2.setName(node2Name);
+            }
+        }
+        if ( (node1.getName() == " ") || (node2.getName() == " ") ) // separate to say what node name failed
+        {
+            cout << "Node name not recognized";
+            return -5;
+        }
+
+        resList.push_back( make_unique<Resistor>(node1, node2, resistance)); // Resistor res = Resistor(N1,N2,R);
+        resNum_copy++;
+    }
+*/
 
 #endif
 

@@ -1,4 +1,5 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/FinalProj.dir/Analysis.cpp.obj"
   "CMakeFiles/FinalProj.dir/Capacitor.cpp.obj"
   "CMakeFiles/FinalProj.dir/EWork.cpp.obj"
   "CMakeFiles/FinalProj.dir/Element.cpp.obj"

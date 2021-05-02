@@ -4,20 +4,10 @@
 #include <complex>
 #include <map>
 #include <list>
+#include <vector>
 #include <memory>
 
-#include "Node.h"
-#include "Element.h"
-#include "Source.h"
-#include "VSource.h"
-#include "ISource.h"
-#include "Load.h"
-#include "Resistor.h"
-#include "Capacitor.h"
-#include "Inductor.h"
-
-#include "helperFunctions.h"
-
+#include "Circuit.h"
 
 using namespace std;
 
@@ -26,6 +16,7 @@ double OMEGA = 1; // will give access global access for elements when calculatin
 
 int main()
 {
+    /*
     unsigned nodeNum = 0;
     unsigned resNum = 0;
     unsigned capNum = 0;
@@ -43,7 +34,7 @@ int main()
     cout << "Enter Number of Inductors:";
     cin >> indNum;
 
-    // Used for deletion
+    // Used for keeping track of how many times to create nodes
     unsigned nodeNum_copy = 0;
 
     list<unique_ptr<Node>> nodeList;
@@ -70,9 +61,6 @@ int main()
     Node node2(" ");
 
     // Source
-    node1.setName(" "); // Reset the names to ensure they aren't carried over
-    node2.setName(" ");
-
     string sourceType;
     double sourceMag = 0;
     double sourcePhase = 0;
@@ -93,7 +81,7 @@ int main()
     cout << "Enter negative/reverse current Nodes Name:";
     cin >> node2Name;
 
-    for( nodeListItr = nodeList.begin() ;nodeListItr != nodeList.end(); nodeListItr++) // get the node for node 1 repeat for node 2
+    for( nodeListItr = nodeList.begin(); nodeListItr != nodeList.end(); nodeListItr++) // get the node for node 1 repeat for node 2
     {
         if (node1Name == (*nodeListItr)->getName() )
         {
@@ -173,6 +161,138 @@ int main()
         cout << "-----------------------"<< endl;
     }
     source->print();
+    */
+
+    // FOR TESTING
+    Node N_A("A");
+    Node N_B("B");
+    Node N_C("C");
+    Node GND("GND");
+
+    list<unique_ptr<Node>> nodeList;
+    nodeList.push_back( make_unique<Node>("A") );
+    nodeList.push_back( make_unique<Node>("B") );
+    nodeList.push_back( make_unique<Node>("C") );
+    nodeList.push_back( make_unique<Node>("GND") );
+
+    nodeList.sort();
+    auto n = nodeList.begin();
+
+    string quickNodesR1[2] = {"A", "B"};
+    string quickNodesR2[2] = {"B", "GND"};
+    string quickNodesC1[2] = {"B", "GND"};
+    string quickNodesL1[2] = {"B", "C"};
+    string quickNodesS1[2] = {"A", "GND"};
+
+    Source* source;
+
+    complex<double> sourceValue;
+    sourceValue = polar(50,0);
+    source = new VSource(N_A, GND, sourceValue);
+
+
+    multimap< string*, Load > loadMap;
+    loadMap.insert( pair(quickNodesR1, Resistor( N_A, N_B, 10)));
+    loadMap.insert( pair(quickNodesR2, Resistor(N_B, GND, 20)));
+    loadMap.insert( pair(quickNodesC1, Capacitor(N_B, GND, 0.5)));
+    //loadMap.insert( pair(quickNodesL1, Inductor(N_B, N_C, 30)));
+
+    printLoadMap(loadMap);
+
+
+
+    // Find parallel and series
+    string load1Node1;
+    string load1Node2;
+    string load2Node1;
+    string load2Node2;
+    string nodePair[2];
+    auto matchNode = loadMap.begin();
+    for (auto loadItr1 = loadMap.begin(); loadItr1 != loadMap.end(); loadItr1++ )
+    {
+        load1Node1 = (loadItr1->first)[0];
+        load1Node2 = (loadItr1->first)[1];
+        //cout << load1Node1 << " -> " << load1Node2 << endl;
+
+        nodePair[0] = load1Node1;
+        nodePair[1] = load1Node2;
+
+        int loadCases; // 0 = series, 1 = parallel, -1 = neither
+
+        loadCases = 0;
+
+
+        for (auto loadItr2 = loadMap.begin(); loadItr2 != loadMap.end(); loadItr2++ )
+        {
+            load2Node1 = (loadItr2->first)[0];
+            load2Node2 = (loadItr2->first)[1];
+
+            if(loadItr2 == loadItr1)
+            {
+                //same element
+                loadCases = 1;
+                continue;
+            }
+            else if( load1Node1 == load2Node1 || load1Node2 == load2Node1 )
+            {
+                loadCases = 2;
+
+                cout << (loadItr1->second).getElementName() << " " <<(loadItr1->second).getImpedance();
+                cout << " matches with ";
+                cout << (loadItr2->second).getElementName()<< " " << (loadItr2->second).getImpedance();
+                cout << " at Node " <<  load2Node1 << endl;
+
+                loadCases = testRelation(loadMap, load2Node1, loadItr1, loadItr2, source);
+
+            }
+            else if( load1Node1 == load2Node2 || load1Node2 == load2Node2 )
+            {
+                loadCases = 3;
+                cout << (loadItr1->second).getElementName() << " " <<(loadItr1->second).getImpedance();
+                cout << " matches with ";
+                cout << (loadItr2->second).getElementName()<< " " << (loadItr2->second).getImpedance();
+                cout << " at Node " <<  load2Node2 << endl;
+                loadCases = testRelation(loadMap, load2Node2, loadItr1, loadItr2, source);
+            }
+            else
+            {
+                loadCases = 4;
+                cout << (loadItr1->second).getElementName() << " " <<(loadItr1->second).getImpedance();
+                cout << " does not match with ";
+                cout << (loadItr2->second).getElementName()<< " " << (loadItr2->second).getImpedance() << endl;
+                loadCases = 3;
+            }
+
+            switch (loadCases) // 0 = series, 1 = parallel, -1 = neither
+            {
+
+                case 0:
+                    cout << "Looks like series" << endl;
+                    break;
+                case 1:
+                    cout << "Looks like parallel" << endl;
+                    break;
+                case -1:
+                    cout << "Looks like nothing :(" << endl;
+                    break;
+                case 3:
+                    break;
+
+                default:
+                    cout <<"bad Case" << endl;
+                    return -6;
+
+            }
+
+
+
+        }
+        cout << "-----------------------------------------------------------" << endl;
+
+    }
+
+
+
 
     //auto loadItr = loadMap.begin();
 
@@ -185,8 +305,6 @@ int main()
 
     //auto dwnCast = dynamic_cast<Resistor*>(rPtr);
     //dwnCast->getResistance();
-
-
 
 
     return 0;
@@ -219,39 +337,3 @@ int main()
 
 
 
-/* ORIGINAL
-    while(resNum_copy < resNum)
-    {
-        node1.setName(" "); // Reset the names to ensure they aren't carried over
-        node2.setName(" ");
-
-        cout << "Enter Resistance:";
-        cin >> resistance;
-
-        cout << "Enter First Nodes Name:";
-        cin >> node1Name;
-
-        cout << "Enter Second Nodes Name:";
-        cin >> node2Name;
-
-        for( nodeListItr = nodeList.begin() ;nodeListItr != nodeList.end(); nodeListItr++) // get the node for node 1 repeat for node 2
-        {
-            if (node1Name == (*nodeListItr)->getName() )
-            {
-                node1.setName(node1Name);
-            }
-            if (node2Name == (*nodeListItr)->getName() )
-            {
-                node2.setName(node2Name);
-            }
-        }
-        if ( (node1.getName() == " ") || (node2.getName() == " ") ) // separate to say what node name failed
-        {
-            cout << "Node name not recognized";
-            return -5;
-        }
-
-        resList.push_back( make_unique<Resistor>(node1, node2, resistance)); // Resistor res = Resistor(N1,N2,R);
-        resNum_copy++;
-    }
-*/

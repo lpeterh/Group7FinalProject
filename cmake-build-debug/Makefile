@@ -141,6 +141,33 @@ FinalProj/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\FinalProj.dir\build.make CMakeFiles/FinalProj.dir/build
 .PHONY : FinalProj/fast
 
+Analysis.obj: Analysis.cpp.obj
+
+.PHONY : Analysis.obj
+
+# target to build an object file
+Analysis.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\FinalProj.dir\build.make CMakeFiles/FinalProj.dir/Analysis.cpp.obj
+.PHONY : Analysis.cpp.obj
+
+Analysis.i: Analysis.cpp.i
+
+.PHONY : Analysis.i
+
+# target to preprocess a source file
+Analysis.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\FinalProj.dir\build.make CMakeFiles/FinalProj.dir/Analysis.cpp.i
+.PHONY : Analysis.cpp.i
+
+Analysis.s: Analysis.cpp.s
+
+.PHONY : Analysis.s
+
+# target to generate assembly for a file
+Analysis.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\FinalProj.dir\build.make CMakeFiles/FinalProj.dir/Analysis.cpp.s
+.PHONY : Analysis.cpp.s
+
 Capacitor.obj: Capacitor.cpp.obj
 
 .PHONY : Capacitor.obj
@@ -528,6 +555,9 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... FinalProj
+	@echo ... Analysis.obj
+	@echo ... Analysis.i
+	@echo ... Analysis.s
 	@echo ... Capacitor.obj
 	@echo ... Capacitor.i
 	@echo ... Capacitor.s
