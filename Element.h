@@ -28,7 +28,7 @@ public:
     std::complex<double> getCurrentThrough();
 
     bool isVGood();
-    bool isAGood();
+    bool isIGood();
 
     // Setters
     void setElementName(std::string newElementName);
@@ -40,7 +40,7 @@ public:
     void setCurrentThrough(std::complex<double> newI);
 
     void setVGood(bool check);
-    void setAGood(bool check);
+    void setIGood(bool check);
 
     // Purely virtual print function to be defined later
     virtual void print() = 0;
@@ -57,7 +57,7 @@ protected:
     std::complex<double> currentThrough;
 
     bool goodV = false;
-    bool goodA = false;
+    bool goodI = false;
 
 };
 

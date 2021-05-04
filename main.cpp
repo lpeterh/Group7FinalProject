@@ -180,7 +180,7 @@ int main()
 
     string quickNodesR1[2] = {"A", "B"};
     string quickNodesR2[2] = {"B", "GND"};
-    string quickNodesC1[2] = {"B", "GND"};
+    string quickNodesC1[2] = {"C", "GND"};
     string quickNodesL1[2] = {"B", "C"};
     string quickNodesS1[2] = {"A", "GND"};
 
@@ -194,13 +194,13 @@ int main()
     multimap< string*, Load > loadMap;
     loadMap.insert( pair(quickNodesR1, Resistor( N_A, N_B, 10)));
     loadMap.insert( pair(quickNodesR2, Resistor(N_B, GND, 20)));
-    loadMap.insert( pair(quickNodesC1, Capacitor(N_B, GND, 0.5)));
-    //loadMap.insert( pair(quickNodesL1, Inductor(N_B, N_C, 30)));
+    loadMap.insert( pair(quickNodesC1, Capacitor(N_C, GND, 0.025)));
+    loadMap.insert( pair(quickNodesL1, Inductor(N_B, N_C, 30)));
 
     printLoadMap(loadMap);
 
 
-
+/*
     // Find parallel and series
     string load1Node1;
     string load1Node2;
@@ -290,7 +290,12 @@ int main()
         cout << "-----------------------------------------------------------" << endl;
 
     }
+    */
 
+    source->print();
+    cout << analyzeCircuit(loadMap, source) << endl;
+    //analyzeCircuit(loadMap, source);
+    printLoadMapVals(loadMap);
 
 
 

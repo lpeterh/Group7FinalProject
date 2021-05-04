@@ -10,7 +10,9 @@ const std::string ISource::SOURCETYPE = "Current Source";
 // ---------------------------------
 ISource::ISource(Node n1, Node n2, std::complex<double> I)
         : forcedCurrent(I), Source(SOURCETYPE, n1, n2, 0, I)
-{ }
+{
+    goodI = true;
+}
 
 // ----------------------------
 // ---------- Getter ----------

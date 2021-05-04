@@ -42,6 +42,15 @@ std::complex<double> Element::getCurrentThrough()
     return currentThrough;
 }
 
+bool Element::isVGood()
+{
+    return goodV;
+}
+bool Element::isIGood()
+{
+    return goodI;
+}
+
 // -----------------------------
 // ---------- Setters ----------
 // -----------------------------
@@ -74,7 +83,7 @@ void Element::setVGood(bool check)
 {
     (this->goodV) = check;
 }
-void Element::setAGood(bool check)
+void Element::setIGood(bool check)
 {
-    (this->goodA) = check;
+    (this->goodI) = check;
 }
