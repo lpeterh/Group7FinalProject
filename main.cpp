@@ -180,22 +180,22 @@ int main()
 
     string quickNodesR1[2] = {"A", "B"};
     string quickNodesR2[2] = {"B", "GND"};
-    string quickNodesC1[2] = {"C", "GND"};
-    string quickNodesL1[2] = {"B", "C"};
+    string quickNodesC1[2] = {"B", "GND"};
+    string quickNodesL1[2] = {"B", "GND"};
     string quickNodesS1[2] = {"A", "GND"};
 
     Source* source;
 
     complex<double> sourceValue;
     sourceValue = polar(50,0);
-    source = new VSource(N_A, GND, sourceValue);
+    source = new ISource(N_A, GND, sourceValue);
 
 
     multimap< string*, Load > loadMap;
     loadMap.insert( pair(quickNodesR1, Resistor( N_A, N_B, 10)));
     loadMap.insert( pair(quickNodesR2, Resistor(N_B, GND, 20)));
-    loadMap.insert( pair(quickNodesC1, Capacitor(N_C, GND, 0.025)));
-    loadMap.insert( pair(quickNodesL1, Inductor(N_B, N_C, 30)));
+    loadMap.insert( pair(quickNodesC1, Capacitor(N_B, GND, 0.025)));
+    loadMap.insert( pair(quickNodesL1, Inductor(N_B, GND, 30)));
 
     printLoadMap(loadMap);
 
@@ -293,8 +293,10 @@ int main()
     */
 
     source->print();
-    cout << analyzeCircuit(loadMap, source) << endl;
-    //analyzeCircuit(loadMap, source);
+
+    //cout << analyzeCircuit(loadMap, source) << endl;
+    auto it = loadMap.begin();
+    analyzeCircuit(loadMap, source, it );
     printLoadMapVals(loadMap);
 
 

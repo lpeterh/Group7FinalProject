@@ -8,7 +8,7 @@ int testRelation(multimap<std::string*, Load>& loadMap, std::string sharedNode, 
 bool testSeries(multimap<std::string*, Load>& loadMap, std::string sharedNode, std::multimap<std::string*, Load>::iterator loadItr1, std::multimap<std::string*, Load>::iterator loadItr2, Source* source);
 bool testParallel(std::multimap<std::string*, Load>::iterator loadItr1, std::multimap<std::string*, Load>::iterator loadItr2);
 
-bool analyzeCircuit(multimap< string*, Load > &loadMap, Source* source);
+bool analyzeCircuit(multimap< string*, Load > &loadMap, Source* source, std::multimap<std::string*, Load>::iterator & ref);
 
 
 complex<double> ohmV(complex<double> impedance, complex<double> current);

@@ -15,7 +15,7 @@ using namespace std;
 
 void printLoadMap(multimap< string*, Load > loadMap);
 
-void printLoadMapVals(multimap< string*, Load > loadMap);
+void printLoadMapVals(multimap< string*, Load >& loadMap);
 
 
 

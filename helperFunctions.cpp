@@ -4,9 +4,9 @@ void printLoadMap(multimap< string*, Load > loadMap)
 {
     for (auto loadItr = loadMap.begin(); loadItr != loadMap.end(); loadItr++ )
     {
-        cout << (*(loadItr->first))[0]; // either way works
-        cout << " : ";
-        cout << *(loadItr->first + 1); // either way works
+        cout << (loadItr->second).getNode1Name(); // either way works
+        cout << " -> ";
+        cout << (loadItr->second).getNode2Name(); // either way works
         cout << " : ";
         cout << (loadItr->second).getElementName();
         cout << " : ";
@@ -17,12 +17,12 @@ void printLoadMap(multimap< string*, Load > loadMap)
 }
 
 
-void printLoadMapVals(multimap< string*, Load > loadMap)
+void printLoadMapVals(multimap< string*, Load > &loadMap)
 {
     for (auto loadItr = loadMap.begin(); loadItr != loadMap.end(); loadItr++ )
     {
         cout << (*(loadItr->first))[0]; // either way works
-        cout << " : ";
+        cout << " -> ";
         cout << *(loadItr->first + 1); // either way works
         cout << " : ";
         cout << (loadItr->second).getElementName();
