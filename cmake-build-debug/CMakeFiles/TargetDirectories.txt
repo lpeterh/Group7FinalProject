@@ -1,3 +1,0 @@
-C:/Users/lphan/Desktop/Peter/RIT/Year 2/Spring/Adv Prog/FinalProj/cmake-build-debug/CMakeFiles/FinalProj.dir
-C:/Users/lphan/Desktop/Peter/RIT/Year 2/Spring/Adv Prog/FinalProj/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/lphan/Desktop/Peter/RIT/Year 2/Spring/Adv Prog/FinalProj/cmake-build-debug/CMakeFiles/rebuild_cache.dir
