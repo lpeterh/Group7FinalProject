@@ -4,6 +4,9 @@
 #include <iomanip>
 #include <complex>
 
+// ---------------------------------
+// ---------- Constructor ----------
+// ---------------------------------
 Inductor::Inductor(Node n1, Node n2, double l)
         : inductance(l), Load("Inductor", n1,n2, 0, 0)
 {
@@ -11,6 +14,8 @@ Inductor::Inductor(Node n1, Node n2, double l)
 
     this->setImpedance(ZR);
 }
+
+
 
 // Getter
 double Inductor::getInductance() {
