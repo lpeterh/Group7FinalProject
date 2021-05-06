@@ -166,10 +166,11 @@ int main()
     auto n = nodeList.begin();
 
     string quickNodesR1[2] = {"A", "B"};
-    string quickNodesR2[2] = {"B", "GND"};
+    string quickNodesR2[2] = {"A", "C"};
     string quickNodesC1[2] = {"C", "GND"};
-    string quickNodesL1[2] = {"B", "C"};
-    string quickNodesS1[2] = {"A", "GND"};
+    string quickNodesC2[2] = {"B", "GND"};
+    string quickNodesL1[2] = {"C", "B"};
+
 
     Source* source;
 
@@ -181,9 +182,10 @@ int main()
 
     multimap< string*, Load > loadMap;
     loadMap.insert( pair(quickNodesR1, Resistor( N_A, N_B, 10)));
-    loadMap.insert( pair(quickNodesR2, Resistor(N_B, GND, 20)));
+    loadMap.insert( pair(quickNodesR2, Resistor(N_A, N_C, 20)));
     loadMap.insert( pair(quickNodesC1, Capacitor(N_C, GND, 0.025)));
-    loadMap.insert( pair(quickNodesL1, Inductor(N_B, N_C, 30)));
+    loadMap.insert( pair(quickNodesC2, Capacitor(N_B, GND, 0.025)));
+    loadMap.insert( pair(quickNodesL1, Inductor(N_C, N_B, 30)));
 
     cout << "User Inputted: " << endl;
     printLoadMap(loadMap);
@@ -207,8 +209,16 @@ int main()
     cout << "Values Found: " << endl;
     auto it = loadMap.begin();
     //cout << analyzeCircuit(loadMap, source, it) << endl;
-    analyzeCircuit(loadMap, source, it );
 
+    try
+    {
+        analyzeCircuit(loadMap, source, it );
+    }
+    catch(noParallelOrSeries& error)
+    {
+        cout << error.what();
+        return -1;
+    }
 
     printLoadMapVals(loadMap);
 

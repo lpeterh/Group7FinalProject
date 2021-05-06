@@ -1,235 +1,246 @@
 #include "Analysis.h"
+#include "noParallelOrSeries.h"
 
 
 bool analyzeCircuit(multimap< string*, Load >& loadMap, Source* source, multimap< string*, Load >::iterator& ref)
 {
-    // Test for thevenin / norton
-    if( loadMap.size() == 1)
-    {
-        auto loadMapItr1 = loadMap.begin();
-        if (source->getElementName() == "Voltage Source" )
+    try {
+        // Test for thevenin / norton
+        if( loadMap.size() == 1)
         {
-            // therefore we know the voltage across,
-            (loadMapItr1->second).setVoltageAcross(source->getVoltageAcross());
-            (loadMapItr1->second).setVGood(true);
+            auto loadMapItr1 = loadMap.begin();
+            if (source->getElementName() == "Voltage Source" )
+            {
+                // therefore we know the voltage across,
+                (loadMapItr1->second).setVoltageAcross(source->getVoltageAcross());
+                (loadMapItr1->second).setVGood(true);
 
-            // And can find the current using ohms law
-            (loadMapItr1->second).setCurrentThrough( ohmC( (loadMapItr1->second).getImpedance(), (loadMapItr1->second).getVoltageAcross() ) );
-            (loadMapItr1->second).setIGood(true);
-        }
-        else if (source->getElementName() == "Current Source" )
-        {
-            // therefore we know the current across, and can find the voltage using ohms law
-            (loadMapItr1->second).setCurrentThrough(source->getCurrentThrough());
-            (loadMapItr1->second).setIGood(true);
+                // And can find the current using ohms law
+                (loadMapItr1->second).setCurrentThrough( ohmC( (loadMapItr1->second).getImpedance(), (loadMapItr1->second).getVoltageAcross() ) );
+                (loadMapItr1->second).setIGood(true);
+            }
+            else if (source->getElementName() == "Current Source" )
+            {
+                // therefore we know the current across, and can find the voltage using ohms law
+                (loadMapItr1->second).setCurrentThrough(source->getCurrentThrough());
+                (loadMapItr1->second).setIGood(true);
 
-            // And can find the voltage using ohms law
-            (loadMapItr1->second).setVoltageAcross( ohmV( (loadMapItr1->second).getImpedance(), (loadMapItr1->second).getCurrentThrough() ) );
-            (loadMapItr1->second).setVGood(true);
+                // And can find the voltage using ohms law
+                (loadMapItr1->second).setVoltageAcross( ohmV( (loadMapItr1->second).getImpedance(), (loadMapItr1->second).getCurrentThrough() ) );
+                (loadMapItr1->second).setVGood(true);
+            }
+            else
+            {
+                std::cout << "Bad source" << std::endl;
+                return false;
+            }
+            ref = loadMapItr1;
+
+            (loadMapItr1->second).setElementName("Thevenin Impedance");
+            printLoadMapVals(loadMap);
+            cout << std::string(75, '-') <<endl;
+            //std::cout << (loadMapItr1->second).getImpedance() << std::endl;
+
+            return true;
         }
         else
         {
-            std::cout << "Bad source" << std::endl;
-            return false;
-        }
-        ref = loadMapItr1;
+            // find series / parallel
 
-        (loadMapItr1->second).setElementName("Thevenin Impedance");
-        printLoadMapVals(loadMap);
-        cout << std::string(75, '-') <<endl;
-        //std::cout << (loadMapItr1->second).getImpedance() << std::endl;
+            multimap< string*, Load > loadMap2;
+            loadMap2 = loadMap;
 
-        return true;
-    }
-    else
-    {
-        // find series / parallel
+            string load1Node1;
+            string load1Node2;
+            string load2Node1;
+            string load2Node2;
+            string nodePair[2];
 
-        multimap< string*, Load > loadMap2;
-        loadMap2 = loadMap;
+            int found = 0;
 
-        string load1Node1;
-        string load1Node2;
-        string load2Node1;
-        string load2Node2;
-        string nodePair[2];
+            auto CPYMapItr1 = loadMap2.begin();
+            auto CPYMapItr2 = loadMap2.begin();
+            auto loadItr1 = loadMap.begin();
+            auto loadItr2 = loadMap.begin();
 
-        int found = 0;
+            auto addedLoadItr = loadMap2.begin();
 
-        auto CPYMapItr1 = loadMap2.begin();
-        auto CPYMapItr2 = loadMap2.begin();
-        auto loadItr1 = loadMap.begin();
-        auto loadItr2 = loadMap.begin();
+            int loadCases; // 0 = series, 1 = parallel, -1 = neither
 
-        auto addedLoadItr = loadMap2.begin();
-
-        int loadCases; // 0 = series, 1 = parallel, -1 = neither
-
-        while (loadItr1 != loadMap.end() && found != 1)
-        {
-            load1Node1 = (loadItr1->first)[0];
-            load1Node2 = (loadItr1->first)[1];
-            //cout << load1Node1 << " -> " << load1Node2 << endl;
-
-            loadCases = 0;
-
-            loadItr2 = loadMap.begin();
-            while(loadItr2 != loadMap.end() && found != 1)
+            while (loadItr1 != loadMap.end() && found != 1)
             {
-                load2Node1 = (loadItr2->first)[0];
-                load2Node2 = (loadItr2->first)[1];
+                load1Node1 = (loadItr1->first)[0];
+                load1Node2 = (loadItr1->first)[1];
+                //cout << load1Node1 << " -> " << load1Node2 << endl;
 
-                if(loadItr2 == loadItr1)
-                {
-                    //same element
-                    loadCases = 1;
-                    loadItr2++;
-                    CPYMapItr2++;
-                    continue;
-                }
-                else if( load1Node1 == load2Node1 || load1Node2 == load2Node1 )
-                {
-                    //cout << (loadItr1->second).getElementName() << " " <<(loadItr1->second).getImpedance();
-                    //cout << " matches with ";
-                    //cout << (loadItr2->second).getElementName()<< " " << (loadItr2->second).getImpedance();
-                    //cout << " at Node " <<  load2Node1 << endl;
-                    loadCases = testRelation(loadMap, load2Node1, loadItr1, loadItr2, source);
-                }
-                else if( load1Node1 == load2Node2 || load1Node2 == load2Node2 )
-                {
-                    //cout << (loadItr1->second).getElementName() << " " <<(loadItr1->second).getImpedance();
-                    //cout << " matches with ";
-                    //cout << (loadItr2->second).getElementName()<< " " << (loadItr2->second).getImpedance();
-                    //cout << " at Node " <<  load2Node2 << endl;
-                    loadCases = testRelation(loadMap, load2Node2, loadItr1, loadItr2, source);
-                }
-                else
-                {
-                    //cout << (loadItr1->second).getElementName() << " " <<(loadItr1->second).getImpedance();
-                    //cout << " does not match with ";
-                    //cout << (loadItr2->second).getElementName()<< " " << (loadItr2->second).getImpedance() << endl;
-                    loadCases = 3;
-                }
+                loadCases = 0;
 
-                switch (loadCases) // 0 = series, 1 = parallel, -1 = neither
+                loadItr2 = loadMap.begin();
+                while(loadItr2 != loadMap.end() && found != 1)
                 {
-                    case 0:
-                        //cout << "Looks like series" << endl;
-                        if ((loadItr1->first)[0] == (loadItr2->first)[0] )
-                        {
-                            nodePair[0] = (loadItr1->first)[1];
-                            nodePair[1] = (loadItr2->first)[1];
-                        }
-                        else if ((loadItr1->first)[1] == (loadItr2->first)[1] )
-                        {
+                    load2Node1 = (loadItr2->first)[0];
+                    load2Node2 = (loadItr2->first)[1];
+
+                    if(loadItr2 == loadItr1)
+                    {
+                        //same element
+                        loadCases = 1;
+                        loadItr2++;
+                        CPYMapItr2++;
+                        continue;
+                    }
+                    else if( load1Node1 == load2Node1 || load1Node2 == load2Node1 )
+                    {
+                        //cout << (loadItr1->second).getElementName() << " " <<(loadItr1->second).getImpedance();
+                        //cout << " matches with ";
+                        //cout << (loadItr2->second).getElementName()<< " " << (loadItr2->second).getImpedance();
+                        //cout << " at Node " <<  load2Node1 << endl;
+                        loadCases = testRelation(loadMap, load2Node1, loadItr1, loadItr2, source);
+                    }
+                    else if( load1Node1 == load2Node2 || load1Node2 == load2Node2 )
+                    {
+                        //cout << (loadItr1->second).getElementName() << " " <<(loadItr1->second).getImpedance();
+                        //cout << " matches with ";
+                        //cout << (loadItr2->second).getElementName()<< " " << (loadItr2->second).getImpedance();
+                        //cout << " at Node " <<  load2Node2 << endl;
+                        loadCases = testRelation(loadMap, load2Node2, loadItr1, loadItr2, source);
+                    }
+                    else
+                    {
+                        //cout << (loadItr1->second).getElementName() << " " <<(loadItr1->second).getImpedance();
+                        //cout << " does not match with ";
+                        //cout << (loadItr2->second).getElementName()<< " " << (loadItr2->second).getImpedance() << endl;
+                        loadCases = 3;
+                    }
+
+                    switch (loadCases) // 0 = series, 1 = parallel, -1 = neither
+                    {
+                        case 0:
+                            //cout << "Looks like series" << endl;
+                            if ((loadItr1->first)[0] == (loadItr2->first)[0] )
+                            {
+                                nodePair[0] = (loadItr1->first)[1];
+                                nodePair[1] = (loadItr2->first)[1];
+                            }
+                            else if ((loadItr1->first)[1] == (loadItr2->first)[1] )
+                            {
+                                nodePair[0] = (loadItr1->first)[0];
+                                nodePair[1] = (loadItr2->first)[0];
+                            }
+                            else if ((loadItr1->first)[0] == (loadItr2->first)[1] )
+                            {
+                                nodePair[0] = (loadItr1->first)[1];
+                                nodePair[1] = (loadItr2->first)[0];
+                            }
+                            else if ((loadItr1->first)[1] == (loadItr2->first)[0] )
+                            {
+                                nodePair[0] = (loadItr1->first)[0];
+                                nodePair[1] = (loadItr2->first)[1];
+                            }
+
+                            addedLoadItr = loadMap.insert( pair(nodePair, Load( "Z", Node(nodePair[0]), Node(nodePair[1]), 0, 0,
+                                                                                ((loadItr1->second) + (loadItr2->second) ).getImpedance() ) ) );
+                            loadMap.erase( loadItr1 );
+                            loadMap.erase( loadItr2 );
+
+                            found = 1;
+
+                            analyzeCircuit(loadMap, source, addedLoadItr); // recursion
+
+                            break;
+                        case 1:
+                            //cout << "Looks like parallel" << endl;
                             nodePair[0] = (loadItr1->first)[0];
-                            nodePair[1] = (loadItr2->first)[0];
-                        }
-                        else if ((loadItr1->first)[0] == (loadItr2->first)[1] )
-                        {
-                            nodePair[0] = (loadItr1->first)[1];
-                            nodePair[1] = (loadItr2->first)[0];
-                        }
-                        else if ((loadItr1->first)[1] == (loadItr2->first)[0] )
-                        {
-                            nodePair[0] = (loadItr1->first)[0];
-                            nodePair[1] = (loadItr2->first)[1];
-                        }
+                            nodePair[1] = (loadItr1->first)[1];
 
-                        addedLoadItr = loadMap.insert( pair(nodePair, Load( "Z", Node(nodePair[0]), Node(nodePair[1]), 0, 0,
-                                                                            ((loadItr1->second) + (loadItr2->second) ).getImpedance() ) ) );
-                        loadMap.erase( loadItr1 );
-                        loadMap.erase( loadItr2 );
+                            addedLoadItr = loadMap.insert( pair(nodePair, Load( "Z", Node(nodePair[0]), Node(nodePair[1]), 0, 0,
+                                                                                ( (loadItr1->second)||(loadItr2->second) ).getImpedance() ) ) );
+                            loadMap.erase(loadItr1);
+                            loadMap.erase(loadItr2);
 
-                        found = 1;
+                            found = 1;
 
-                        analyzeCircuit(loadMap, source, addedLoadItr); // recursion
+                            analyzeCircuit(loadMap, source, addedLoadItr); // recursion
 
-                        break;
-                    case 1:
-                        //cout << "Looks like parallel" << endl;
-                        nodePair[0] = (loadItr1->first)[0];
-                        nodePair[1] = (loadItr1->first)[1];
+                            break;
+                        case -1:
+                            //cout << "Looks like nothing :(" << endl;
 
-                        addedLoadItr = loadMap.insert( pair(nodePair, Load( "Z", Node(nodePair[0]), Node(nodePair[1]), 0, 0,
-                                                                            ( (loadItr1->second)||(loadItr2->second) ).getImpedance() ) ) );
-                        loadMap.erase(loadItr1);
-                        loadMap.erase(loadItr2);
+                        case 3:
+                            break;
 
-                        found = 1;
+                        default:
+                            //cout <<"bad Case" << endl;
+                            return -6;
 
-                        analyzeCircuit(loadMap, source, addedLoadItr); // recursion
-
-                        break;
-                    case -1:
-                        //cout << "Looks like nothing :(" << endl;
-
-                    case 3:
-                        break;
-
-                    default:
-                        //cout <<"bad Case" << endl;
-                        return -6;
-
+                    }
+                    if (found != 1)
+                    {
+                        loadItr2++;
+                        CPYMapItr2++;
+                    }
                 }
+
                 if (found != 1)
                 {
-                    loadItr2++;
-                    CPYMapItr2++;
+                    CPYMapItr1++;
+                    loadItr1++;
                 }
-            }
 
-            if (found != 1)
+            }
+            if(found == 0 )
             {
-                CPYMapItr1++;
-                loadItr1++;
+                throw noParallelOrSeries();
+                //std::cout << "Error, loadcases is not what it should ba at bottom of analyze" << std::endl;
             }
 
+
+            // based on series or parallel, give current / voltage, find other with ohms
+
+            auto newOld1 = loadMap.begin();
+            newOld1 = loadMap.insert(make_pair( (CPYMapItr1->first), (CPYMapItr1->second)) );
+
+            auto newOld2 = loadMap.begin();
+            newOld2 = loadMap.insert(make_pair( (CPYMapItr2->first), (CPYMapItr2->second)) );
+
+            // loadCases, 0 = series, 1 = parallel, -1 = neither
+            if (loadCases == 0) // series therefore current is the same, use current to find voltage
+            {
+                (newOld1->second).setCurrentThrough( (addedLoadItr->second).getCurrentThrough() );
+                (newOld1->second).setIGood(true);
+                (newOld2->second).setCurrentThrough( (addedLoadItr->second).getCurrentThrough() );
+                (newOld2->second).setIGood(true);
+
+                (newOld1->second).setVoltageAcross( ohmV( (newOld1->second).getImpedance(), (newOld1->second).getCurrentThrough() ) );
+                (newOld1->second).setVGood(true);
+                (newOld2->second).setVoltageAcross( ohmV( (newOld2->second).getImpedance(), (newOld2->second).getCurrentThrough() ) );
+                (newOld2->second).setVGood(true);
+            }
+            else if (loadCases == 1) // parallel therefore voltage is the same, use voltage to find current
+            {
+                (newOld1->second).setVoltageAcross( (addedLoadItr->second).getVoltageAcross() );
+                (newOld1->second).setVGood(true);
+                (newOld2->second).setVoltageAcross( (addedLoadItr->second).getVoltageAcross() );
+                (newOld2->second).setVGood(true);
+
+                (newOld1->second).setCurrentThrough( ohmC( (newOld1->second).getImpedance(), (newOld1->second).getVoltageAcross() ) );
+                (newOld1->second).setIGood(true);
+                (newOld2->second).setCurrentThrough( ohmC( (newOld2->second).getImpedance(), (newOld2->second).getVoltageAcross() ) );
+                (newOld2->second).setIGood(true);
+            }
+
+
+            //std::cout << (addedLoadItr->second).getImpedance() << " : " << (addedLoadItr->second).getVoltageAcross() << " V ---- " << (addedLoadItr->second).getCurrentThrough() << " A" << std::endl;
+            ref = newOld1;
+            loadMap.erase(addedLoadItr);
+
+            return true;
         }
-
-        // based on series or parallel, give current / voltage, find other with ohms
-
-        auto newOld1 = loadMap.begin();
-        newOld1 = loadMap.insert(make_pair( (CPYMapItr1->first), (CPYMapItr1->second)) );
-
-        auto newOld2 = loadMap.begin();
-        newOld2 = loadMap.insert(make_pair( (CPYMapItr2->first), (CPYMapItr2->second)) );
-
-        // loadCases, 0 = series, 1 = parallel, -1 = neither
-        if (loadCases == 0) // series therefore current is the same, use current to find voltage
-        {
-            (newOld1->second).setCurrentThrough( (addedLoadItr->second).getCurrentThrough() );
-            (newOld1->second).setIGood(true);
-            (newOld2->second).setCurrentThrough( (addedLoadItr->second).getCurrentThrough() );
-            (newOld2->second).setIGood(true);
-
-            (newOld1->second).setVoltageAcross( ohmV( (newOld1->second).getImpedance(), (newOld1->second).getCurrentThrough() ) );
-            (newOld1->second).setVGood(true);
-            (newOld2->second).setVoltageAcross( ohmV( (newOld2->second).getImpedance(), (newOld2->second).getCurrentThrough() ) );
-            (newOld2->second).setVGood(true);
-        }
-        else if (loadCases == 1) // parallel therefore voltage is the same, use voltage to find current
-        {
-            (newOld1->second).setVoltageAcross( (addedLoadItr->second).getVoltageAcross() );
-            (newOld1->second).setVGood(true);
-            (newOld2->second).setVoltageAcross( (addedLoadItr->second).getVoltageAcross() );
-            (newOld2->second).setVGood(true);
-
-            (newOld1->second).setCurrentThrough( ohmC( (newOld1->second).getImpedance(), (newOld1->second).getVoltageAcross() ) );
-            (newOld1->second).setIGood(true);
-            (newOld2->second).setCurrentThrough( ohmC( (newOld2->second).getImpedance(), (newOld2->second).getVoltageAcross() ) );
-            (newOld2->second).setIGood(true);
-        }
-        else
-        {
-            std::cout << "Error, loadcases is not what it should ba at bottom of analyze" << std::endl;
-        }
-
-        //std::cout << (addedLoadItr->second).getImpedance() << " : " << (addedLoadItr->second).getVoltageAcross() << " V ---- " << (addedLoadItr->second).getCurrentThrough() << " A" << std::endl;
-        ref = newOld1;
-        loadMap.erase(addedLoadItr);
-
-        return true;
+    }
+    catch(noParallelOrSeries & error)
+    {
+        cout << "Bad circuit detected" << endl;
+        throw;
     }
 }
 

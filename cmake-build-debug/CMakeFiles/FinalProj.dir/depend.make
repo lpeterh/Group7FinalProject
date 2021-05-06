@@ -14,6 +14,7 @@ CMakeFiles/FinalProj.dir/Analysis.cpp.obj: ../Resistor.h
 CMakeFiles/FinalProj.dir/Analysis.cpp.obj: ../Source.h
 CMakeFiles/FinalProj.dir/Analysis.cpp.obj: ../VSource.h
 CMakeFiles/FinalProj.dir/Analysis.cpp.obj: ../helperFunctions.h
+CMakeFiles/FinalProj.dir/Analysis.cpp.obj: ../noParallelOrSeries.h
 
 CMakeFiles/FinalProj.dir/Capacitor.cpp.obj: ../Capacitor.cpp
 CMakeFiles/FinalProj.dir/Capacitor.cpp.obj: ../Capacitor.h
@@ -87,4 +88,5 @@ CMakeFiles/FinalProj.dir/main.cpp.obj: ../Source.h
 CMakeFiles/FinalProj.dir/main.cpp.obj: ../VSource.h
 CMakeFiles/FinalProj.dir/main.cpp.obj: ../helperFunctions.h
 CMakeFiles/FinalProj.dir/main.cpp.obj: ../main.cpp
+CMakeFiles/FinalProj.dir/main.cpp.obj: ../noParallelOrSeries.h
 

@@ -161,6 +161,9 @@
 		<Unit filename="C:/Users/lphan/Desktop/Peter/RIT/Year 2/Spring/Adv Prog/FinalProj/main.cpp">
 			<Option target="FinalProj"/>
 		</Unit>
+		<Unit filename="C:/Users/lphan/Desktop/Peter/RIT/Year 2/Spring/Adv Prog/FinalProj/noParallelOrSeries.h">
+			<Option target="FinalProj"/>
+		</Unit>
 		<Unit filename="C:/Users/lphan/Desktop/Peter/RIT/Year 2/Spring/Adv Prog/FinalProj/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>

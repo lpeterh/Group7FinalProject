@@ -9,6 +9,8 @@
 C:/Users/lphan/Desktop/Peter/RIT/Year 2/Spring/Adv Prog/FinalProj/Analysis.cpp
 Analysis.h
 C:/Users/lphan/Desktop/Peter/RIT/Year 2/Spring/Adv Prog/FinalProj/Analysis.h
+noParallelOrSeries.h
+C:/Users/lphan/Desktop/Peter/RIT/Year 2/Spring/Adv Prog/FinalProj/noParallelOrSeries.h
 
 C:/Users/lphan/Desktop/Peter/RIT/Year 2/Spring/Adv Prog/FinalProj/Analysis.h
 Circuit.h
@@ -41,6 +43,8 @@ helperFunctions.h
 C:/Users/lphan/Desktop/Peter/RIT/Year 2/Spring/Adv Prog/FinalProj/helperFunctions.h
 Analysis.h
 C:/Users/lphan/Desktop/Peter/RIT/Year 2/Spring/Adv Prog/FinalProj/Analysis.h
+noParallelOrSeries.h
+C:/Users/lphan/Desktop/Peter/RIT/Year 2/Spring/Adv Prog/FinalProj/noParallelOrSeries.h
 
 C:/Users/lphan/Desktop/Peter/RIT/Year 2/Spring/Adv Prog/FinalProj/Element.h
 string
@@ -107,4 +111,8 @@ Element.h
 C:/Users/lphan/Desktop/Peter/RIT/Year 2/Spring/Adv Prog/FinalProj/Element.h
 Load.h
 C:/Users/lphan/Desktop/Peter/RIT/Year 2/Spring/Adv Prog/FinalProj/Load.h
+
+C:/Users/lphan/Desktop/Peter/RIT/Year 2/Spring/Adv Prog/FinalProj/noParallelOrSeries.h
+stdexcept
+-
 

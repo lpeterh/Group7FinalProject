@@ -13,6 +13,7 @@
 
 #include "helperFunctions.h"
 #include "Analysis.h"
+#include "noParallelOrSeries.h"
 
 #endif
 
