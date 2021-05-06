@@ -16,7 +16,7 @@ double OMEGA = 1; // will give access global access for elements when calculatin
 
 int main()
 {
-    /*
+/*
     unsigned nodeNum = 0;
     unsigned resNum = 0;
     unsigned capNum = 0;
@@ -117,7 +117,6 @@ int main()
         return -4;
     }
 
-
     getLoad<Resistor>(resNum, nodeList, resList, "Resistance");
 
     getLoad<Capacitor>(capNum, nodeList, capList, "Capacitance");
@@ -147,21 +146,9 @@ int main()
     {
         loadMap.insert(pair( (*indListItr)->getNodes() , *(*indListItr)));
     }
+*/
+     //printLoadMap(loadMap);
 
-    for (auto loadItr = loadMap.begin(); loadItr != loadMap.end(); loadItr++ ) // TODO: this may be nice to have as a helper function
-    {
-        cout << (*(loadItr->first))[0]; // either way works
-        cout << " : ";
-        cout << *(loadItr->first + 1); // either way works
-        cout << " : ";
-        cout << (loadItr->second).getElementName();
-        cout << " : ";
-        cout << (loadItr->second).getImpedance();
-        cout << endl;
-        cout << "-----------------------"<< endl;
-    }
-    source->print();
-    */
 
     // FOR TESTING
     Node N_A("A");
@@ -180,167 +167,50 @@ int main()
 
     string quickNodesR1[2] = {"A", "B"};
     string quickNodesR2[2] = {"B", "GND"};
-    string quickNodesC1[2] = {"B", "GND"};
-    string quickNodesL1[2] = {"B", "GND"};
+    string quickNodesC1[2] = {"C", "GND"};
+    string quickNodesL1[2] = {"B", "C"};
     string quickNodesS1[2] = {"A", "GND"};
 
     Source* source;
 
     complex<double> sourceValue;
     sourceValue = polar(50,0);
-    source = new ISource(N_A, GND, sourceValue);
+    source = new VSource(N_A, GND, sourceValue);
+    string sourceType = "V";
 
 
     multimap< string*, Load > loadMap;
     loadMap.insert( pair(quickNodesR1, Resistor( N_A, N_B, 10)));
     loadMap.insert( pair(quickNodesR2, Resistor(N_B, GND, 20)));
-    loadMap.insert( pair(quickNodesC1, Capacitor(N_B, GND, 0.025)));
-    loadMap.insert( pair(quickNodesL1, Inductor(N_B, GND, 30)));
+    loadMap.insert( pair(quickNodesC1, Capacitor(N_C, GND, 0.025)));
+    loadMap.insert( pair(quickNodesL1, Inductor(N_B, N_C, 30)));
 
+    cout << "User Inputted: " << endl;
     printLoadMap(loadMap);
 
-
-/*
-    // Find parallel and series
-    string load1Node1;
-    string load1Node2;
-    string load2Node1;
-    string load2Node2;
-    string nodePair[2];
-    auto matchNode = loadMap.begin();
-    for (auto loadItr1 = loadMap.begin(); loadItr1 != loadMap.end(); loadItr1++ )
+    // This is stupid, print would do that anyway as it is a virtual
+    // but downcasting the loads in the map doesn't work for some reason?
+    // and source is the only element that is not in the map
+    // so to fulfill the requirement of downcasting, here  are...
+    // (please have mercy)
+    //source->print();
+    if(sourceType == "V")
     {
-        load1Node1 = (loadItr1->first)[0];
-        load1Node2 = (loadItr1->first)[1];
-        //cout << load1Node1 << " -> " << load1Node2 << endl;
-
-        nodePair[0] = load1Node1;
-        nodePair[1] = load1Node2;
-
-        int loadCases; // 0 = series, 1 = parallel, -1 = neither
-
-        loadCases = 0;
-
-
-        for (auto loadItr2 = loadMap.begin(); loadItr2 != loadMap.end(); loadItr2++ )
-        {
-            load2Node1 = (loadItr2->first)[0];
-            load2Node2 = (loadItr2->first)[1];
-
-            if(loadItr2 == loadItr1)
-            {
-                //same element
-                loadCases = 1;
-                continue;
-            }
-            else if( load1Node1 == load2Node1 || load1Node2 == load2Node1 )
-            {
-                loadCases = 2;
-
-                cout << (loadItr1->second).getElementName() << " " <<(loadItr1->second).getImpedance();
-                cout << " matches with ";
-                cout << (loadItr2->second).getElementName()<< " " << (loadItr2->second).getImpedance();
-                cout << " at Node " <<  load2Node1 << endl;
-
-                loadCases = testRelation(loadMap, load2Node1, loadItr1, loadItr2, source);
-
-            }
-            else if( load1Node1 == load2Node2 || load1Node2 == load2Node2 )
-            {
-                loadCases = 3;
-                cout << (loadItr1->second).getElementName() << " " <<(loadItr1->second).getImpedance();
-                cout << " matches with ";
-                cout << (loadItr2->second).getElementName()<< " " << (loadItr2->second).getImpedance();
-                cout << " at Node " <<  load2Node2 << endl;
-                loadCases = testRelation(loadMap, load2Node2, loadItr1, loadItr2, source);
-            }
-            else
-            {
-                loadCases = 4;
-                cout << (loadItr1->second).getElementName() << " " <<(loadItr1->second).getImpedance();
-                cout << " does not match with ";
-                cout << (loadItr2->second).getElementName()<< " " << (loadItr2->second).getImpedance() << endl;
-                loadCases = 3;
-            }
-
-            switch (loadCases) // 0 = series, 1 = parallel, -1 = neither
-            {
-
-                case 0:
-                    cout << "Looks like series" << endl;
-                    break;
-                case 1:
-                    cout << "Looks like parallel" << endl;
-                    break;
-                case -1:
-                    cout << "Looks like nothing :(" << endl;
-                    break;
-                case 3:
-                    break;
-
-                default:
-                    cout <<"bad Case" << endl;
-                    return -6;
-
-            }
-
-
-
-        }
-        cout << "-----------------------------------------------------------" << endl;
-
+        (dynamic_cast<VSource*>(source))->print();
     }
-    */
+    else if(sourceType == "I")
+    {
+        (dynamic_cast<ISource*>(source))->print();
+    }
 
-    source->print();
-
-    //cout << analyzeCircuit(loadMap, source) << endl;
+    cout << endl << endl;
+    cout << "Values Found: " << endl;
     auto it = loadMap.begin();
+    //cout << analyzeCircuit(loadMap, source, it) << endl;
     analyzeCircuit(loadMap, source, it );
+
+
     printLoadMapVals(loadMap);
-
-
-
-    //auto loadItr = loadMap.begin();
-
-    //auto dwnCstSource = dynamic_cast<VSource*>(source);
-    //dwnCstSource->setVoltage(5);
-
-    //loadItr = loadMap.find( (*resListItr)->getNodes() );
-
-    //Load* rPtr = &(loadItr->second);
-
-    //auto dwnCast = dynamic_cast<Resistor*>(rPtr);
-    //dwnCast->getResistance();
-
 
     return 0;
 }
-
-//complex<double> complexI (5.0,1.0);
-//complex<double> complexZ (100.0,-8.0);
-
-//Node A("A");
-//Node B("B");
-//Node C("C");
-//Node GND("GND");
-
-//Load* Z = new Load("Generic Load", A, B, complexV, complexI, complexZ);
-//Z.print();
-
-//Resistor res = Resistor(B,GND,20);
-//R.print();
-//cout << R.getImpedance() << endl; // Better formatting
-
-//Capacitor cap = Capacitor(C,GND,4);
-//C.print();
-//cout << C.getImpedance() << endl;
-
-//Inductor ind = Inductor(B,C,9);
-//L.print();
-//cout << L.getImpedance() << endl;
-
-//cout << i.getNode1Name() << " -> " << i.getNode2Name() << endl; // TODO: new function? printNodeConnections()
-
-
-

@@ -9,6 +9,12 @@
 class VSource : public Source
 {
 public:
+    // Operator Overloading
+    const VSource& operator=(const VSource& B);
+
+    // Copy Constructor
+    VSource(const VSource& B);
+
     // Constructor
     VSource(Node n1, Node n2, std::complex<double> V);
 

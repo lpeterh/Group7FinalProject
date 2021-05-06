@@ -9,6 +9,12 @@
 class ISource : public Source
 {
 public:
+    // Operator Overloading
+    const ISource& operator=(const ISource& B);
+
+    // Copy Constructor
+    ISource(const ISource& B);
+
     // Constructor
     ISource(Node n1, Node n2, std::complex<double> I);
 

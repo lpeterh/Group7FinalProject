@@ -4,6 +4,35 @@
 #include <iomanip>
 #include <complex>
 
+// Operator Overloading
+const Inductor& Inductor::operator=(const Inductor& B)
+{
+    this->inductance = B.inductance;
+    this->elementName = B.elementName;
+    this->voltageAcross = B.voltageAcross;
+    this->currentThrough = B.currentThrough;
+
+    this->node1 = B.node1;
+    this->node2 = B.node2;
+
+    std::complex<double> ZR (0,(this->inductance * OMEGA));
+    this->setImpedance(ZR);
+
+    return *this;
+}
+
+// Copy Constructor
+Inductor::Inductor(const Inductor& B)
+        :  Load(B.elementName, B.node1, B.node2, B.voltageAcross, B.currentThrough)
+{
+    this->inductance = B.inductance;
+
+    std::complex<double> ZR (0,(this->inductance * OMEGA));
+
+    this->setImpedance(ZR);
+}
+
+
 Inductor::Inductor(Node n1, Node n2, double l)
         : inductance(l), Load("Inductor", n1,n2, 0, 0)
 {

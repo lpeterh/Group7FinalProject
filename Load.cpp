@@ -1,7 +1,52 @@
 #include "Load.h"
-
+#include "Node.h"
 #include <iostream>
 #include <iomanip>
+
+
+// Operator Overloading
+const Load& Load::operator=(const Load& B)
+{
+    this->impedance = B.impedance;
+    this->elementName = B.elementName;
+    this->voltageAcross = B.voltageAcross;
+    this->currentThrough = B.currentThrough;
+
+    this->node1 = B.node1;
+    this->node2 = B.node2;
+
+    return *this;
+}
+
+// Copy Constructor
+Load::Load(const Load& B)
+    :  Element(B.elementName, B.node1, B.node2, B.voltageAcross, B.currentThrough)
+{
+    this->impedance = B.impedance;
+}
+
+Load operator+(const Load& A, const Load& B)
+{
+    std::complex<double> ZResult;
+    ZResult = A.impedance + B.impedance;
+    Load result("SeriesLoad", Node("1"), Node("2"), 0, 0, ZResult);
+
+    return result;
+
+}
+
+Load operator||(const Load& A, const Load& B)
+{
+    std::complex<double> ZResult;
+    ZResult = (1.00/(((1.00)/(A.impedance)) + ((1.00)/(B.impedance))));
+    Load result("SeriesLoad", Node("1"), Node("2"), 0, 0, ZResult);
+
+    return result;
+
+}
+
+
+
 
 // Constructor
 Load::Load(std::string name, Node n1, Node n2, std::complex<double> v, std::complex<double> i, std::complex<double> z)

@@ -7,8 +7,14 @@
 class Node
 {
 public:
+    // Operator Overloading
+    const Node& operator=(const Node& B);
+
     // Constructor
     Node(std::string name);
+
+    // Copy Constructor
+    Node(const Node& B);
 
 
     std::string getName(); // Getter

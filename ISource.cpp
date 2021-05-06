@@ -5,6 +5,28 @@
 
 const std::string ISource::SOURCETYPE = "Current Source";
 
+// Operator Overloading
+const ISource& ISource::operator=(const ISource& B)
+{
+    this->elementName = B.elementName;
+    this->voltageAcross = B.voltageAcross;
+    this->currentThrough = B.currentThrough;
+    this->forcedCurrent = B.forcedCurrent;
+
+    this->node1 = B.node1;
+    this->node2 = B.node2;
+
+    return *this;
+}
+
+// Copy Constructor
+ISource::ISource(const ISource& B)
+        :  Source(B.elementName, B.node1, B.node2, B.voltageAcross, B.currentThrough)
+{
+    this->forcedCurrent = B.forcedCurrent;
+
+}
+
 // ---------------------------------
 // ---------- Constructor ----------
 // ---------------------------------
@@ -37,7 +59,7 @@ void ISource::print()
 {
     int barNum = 25;
     std::cout << std::fixed << std::setprecision(3);
-    std::cout << std::string(barNum, '-') << std::endl;
+    //std::cout << std::string(barNum, '-') << std::endl;
     std::cout << this->elementName << std::endl;
     std::cout << "  Magnitude -- " << std::abs(this->forcedCurrent) << " A" << std::endl;
     std::cout << "  Angle ------ " <<  std::arg(this->forcedCurrent) << " rad" << std::endl;

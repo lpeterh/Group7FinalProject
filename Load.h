@@ -9,8 +9,19 @@
 class Load : public Element
 {
 public:
+    // Operator Overloading
+    virtual const Load& operator=(const Load& B);
+
+
+    friend Load operator+(const Load& A, const Load& B);
+
+    friend Load operator||(const Load& A, const Load& B);
+
     // Constructor, note the z=0 will default it to 0 if z is not provided
     Load(std::string name, Node n1, Node n2, std::complex<double> v, std::complex<double> i, std::complex<double> z = 0);
+
+    // Copy Constructor
+    Load(const Load& B);
 
     // Getter
     virtual std::complex<double> getImpedance();

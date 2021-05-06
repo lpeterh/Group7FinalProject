@@ -33,6 +33,12 @@ bool analyzeCircuit(multimap< string*, Load >& loadMap, Source* source, multimap
             return false;
         }
         ref = loadMapItr1;
+
+        (loadMapItr1->second).setElementName("Thevenin Impedance");
+        printLoadMapVals(loadMap);
+        cout << std::string(75, '-') <<endl;
+        //std::cout << (loadMapItr1->second).getImpedance() << std::endl;
+
         return true;
     }
     else
@@ -130,8 +136,8 @@ bool analyzeCircuit(multimap< string*, Load >& loadMap, Source* source, multimap
                             nodePair[1] = (loadItr2->first)[1];
                         }
 
-                        addedLoadItr = loadMap.insert( pair(nodePair, Load( "Z", Node(nodePair[0]), Node(nodePair[1]), 0, 0, (loadItr1->second).getImpedance() + (loadItr2->second).getImpedance() ) ) );
-
+                        addedLoadItr = loadMap.insert( pair(nodePair, Load( "Z", Node(nodePair[0]), Node(nodePair[1]), 0, 0,
+                                                                            ((loadItr1->second) + (loadItr2->second) ).getImpedance() ) ) );
                         loadMap.erase( loadItr1 );
                         loadMap.erase( loadItr2 );
 
@@ -146,7 +152,7 @@ bool analyzeCircuit(multimap< string*, Load >& loadMap, Source* source, multimap
                         nodePair[1] = (loadItr1->first)[1];
 
                         addedLoadItr = loadMap.insert( pair(nodePair, Load( "Z", Node(nodePair[0]), Node(nodePair[1]), 0, 0,
-                                                              1.0 / ( (1.0/(loadItr1->second).getImpedance()) + (1.0/(loadItr2->second).getImpedance()) ) ) ) );
+                                                                            ( (loadItr1->second)||(loadItr2->second) ).getImpedance() ) ) );
                         loadMap.erase(loadItr1);
                         loadMap.erase(loadItr2);
 
@@ -182,15 +188,12 @@ bool analyzeCircuit(multimap< string*, Load >& loadMap, Source* source, multimap
         }
 
         // based on series or parallel, give current / voltage, find other with ohms
-        //std::cout << (addedLoadItr->second).getImpedance() << " : " << (addedLoadItr->second).getVoltageAcross() << " V ---- " << (addedLoadItr->second).getCurrentThrough() << " A" << std::endl;
 
         auto newOld1 = loadMap.begin();
         newOld1 = loadMap.insert(make_pair( (CPYMapItr1->first), (CPYMapItr1->second)) );
-        //std::cout << (addedLoadItr->second).getImpedance() << " : " << (addedLoadItr->second).getVoltageAcross() << " V ---- " << (addedLoadItr->second).getCurrentThrough() << " A" << std::endl;
+
         auto newOld2 = loadMap.begin();
         newOld2 = loadMap.insert(make_pair( (CPYMapItr2->first), (CPYMapItr2->second)) );
-
-        //std::cout << (addedLoadItr->second).getImpedance() << " : " << (addedLoadItr->second).getVoltageAcross() << " V ---- " << (addedLoadItr->second).getCurrentThrough() << " A" << std::endl;
 
         // loadCases, 0 = series, 1 = parallel, -1 = neither
         if (loadCases == 0) // series therefore current is the same, use current to find voltage
@@ -336,4 +339,92 @@ complex<double> voltageDivision(complex<double> voltage, complex<double> partial
 }
 
 
+
+
+/* // ORIGANAL
+    // Find parallel and series
+    string load1Node1;
+    string load1Node2;
+    string load2Node1;
+    string load2Node2;
+    string nodePair[2];
+    auto matchNode = loadMap.begin();
+    for (auto loadItr1 = loadMap.begin(); loadItr1 != loadMap.end(); loadItr1++ )
+    {
+        load1Node1 = (loadItr1->first)[0];
+        load1Node2 = (loadItr1->first)[1];
+        //cout << load1Node1 << " -> " << load1Node2 << endl;
+
+        nodePair[0] = load1Node1;
+        nodePair[1] = load1Node2;
+
+        int loadCases; // 0 = series, 1 = parallel, -1 = neither
+
+        loadCases = 0;
+
+
+        for (auto loadItr2 = loadMap.begin(); loadItr2 != loadMap.end(); loadItr2++ )
+        {
+            load2Node1 = (loadItr2->first)[0];
+            load2Node2 = (loadItr2->first)[1];
+
+            if(loadItr2 == loadItr1)
+            {
+                //same element
+                loadCases = 1;
+                continue;
+            }
+            else if( load1Node1 == load2Node1 || load1Node2 == load2Node1 )
+            {
+                loadCases = 2;
+
+                cout << (loadItr1->second).getElementName() << " " <<(loadItr1->second).getImpedance();
+                cout << " matches with ";
+                cout << (loadItr2->second).getElementName()<< " " << (loadItr2->second).getImpedance();
+                cout << " at Node " <<  load2Node1 << endl;
+
+                loadCases = testRelation(loadMap, load2Node1, loadItr1, loadItr2, source);
+
+            }
+            else if( load1Node1 == load2Node2 || load1Node2 == load2Node2 )
+            {
+                loadCases = 3;
+                cout << (loadItr1->second).getElementName() << " " <<(loadItr1->second).getImpedance();
+                cout << " matches with ";
+                cout << (loadItr2->second).getElementName()<< " " << (loadItr2->second).getImpedance();
+                cout << " at Node " <<  load2Node2 << endl;
+                loadCases = testRelation(loadMap, load2Node2, loadItr1, loadItr2, source);
+            }
+            else
+            {
+                loadCases = 4;
+                cout << (loadItr1->second).getElementName() << " " <<(loadItr1->second).getImpedance();
+                cout << " does not match with ";
+                cout << (loadItr2->second).getElementName()<< " " << (loadItr2->second).getImpedance() << endl;
+                loadCases = 3;
+            }
+
+            switch (loadCases) // 0 = series, 1 = parallel, -1 = neither
+            {
+
+                case 0:
+                    cout << "Looks like series" << endl;
+                    break;
+                case 1:
+                    cout << "Looks like parallel" << endl;
+                    break;
+                case -1:
+                    cout << "Looks like nothing :(" << endl;
+                    break;
+                case 3:
+                    break;
+
+                default:
+                    cout <<"bad Case" << endl;
+                    return -6;
+            }
+        }
+        cout << "-----------------------------------------------------------" << endl;
+    }
+    */
 

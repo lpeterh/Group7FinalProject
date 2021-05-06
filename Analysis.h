@@ -14,6 +14,6 @@ bool analyzeCircuit(multimap< string*, Load > &loadMap, Source* source, std::mul
 complex<double> ohmV(complex<double> impedance, complex<double> current);
 complex<double> ohmC(complex<double> impedance, complex<double> voltage);
 
-complex<double> voltageDivision(complex<double> voltage, complex<double> partialImpedance, complex<double> totalImpedance);
+complex<double> voltageDivision(complex<double> voltage, complex<double> partialImpedance, complex<double> totalImpedance); // didn't end up being used
 
 #endif
