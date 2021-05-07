@@ -1,6 +1,4 @@
-//
-// Created by lphan on 4/29/2021.
-//
+/*
 #include <iostream>
 #include <complex>
 
@@ -30,3 +28,4 @@ complex<double> voltageDivision(complex<double> voltage, complex<double> partial
     cout << specificVoltage << endl;
     return specificVoltage;
 };
+ */

@@ -1,7 +1,4 @@
-//
-// Created by lphan on 4/29/2021.
-//
-
+/*
 friend Load operator+(const Load& A, const Load& B);
 
 friend Load operator||(const Load& A, const Load& B);
@@ -25,3 +22,4 @@ Load operator||(const Load& A, const Load& B)
     return result;
 
 }
+*/
