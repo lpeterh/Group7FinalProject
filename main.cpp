@@ -16,23 +16,117 @@ double OMEGA = 1; // will give access global access for elements when calculatin
 
 int main()
 {
-/*
-    unsigned nodeNum = 0;
-    unsigned resNum = 0;
-    unsigned capNum = 0;
-    unsigned indNum = 0;
+    // were all unsigned but couldn't check if negative
+    int nodeNum = 0;
+    int resNum = 0;
+    int capNum = 0;
+    int indNum = 0;
+
+    int omegaCheck = 0;
+    int nodeNumCheck = 0;
+    int resNumCheck = 0;
+    int capNumCheck = 0;
+    int indNumCheck = 0;
 
     cout << "Enter a value for Omega: ";
     cin >> OMEGA;
+    cout << endl;
+    if( (OMEGA >= 0) )
+    {
+        omegaCheck = 1;
+    }
+    while(omegaCheck != 1)
+    {
+        OMEGA = 1;
+        cout << "Please enter a positive number for omega" <<endl;
+        cout << "Enter a value for Omega: ";
+        cin >> OMEGA;
+        cout << endl;
+        if( (OMEGA >= 0) )
+        {
+            omegaCheck = 1;
+        }
+    }
+
 
     cout << "Enter Number of Nodes:";
     cin >> nodeNum;
+    cout << endl;
+    if( (nodeNum >= 0) )
+    {
+        nodeNumCheck = 1;
+    }
+    while(nodeNumCheck != 1)
+    {
+        nodeNum = 1;
+        cout << "Please enter a positive number for number of nodes" <<endl;
+        cout << "Enter Number of Nodes:";
+        cin >> nodeNum;
+        cout << endl;
+        if( (nodeNum >= 0) )
+        {
+            nodeNumCheck = 1;
+        }
+    }
+
+
     cout << "Enter Number of Resistors:";
     cin >> resNum;
+    cout << endl;
+    if(resNum >= 0)
+    {
+        resNumCheck = 1;
+    }
+    while(resNumCheck != 1)
+    {
+        cout << "Please enter a positive number for number of resistors" <<endl;
+        cout << "Enter Number of Resistors:";
+        cin >> resNum;
+        cout << endl;
+        if(resNum >= 0)
+        {
+            resNumCheck = 1;
+        }
+    }
+
     cout << "Enter Number of Capacitors:";
     cin >> capNum;
+    cout << endl;
+    if(capNum >= 0)
+    {
+        capNumCheck = 1;
+    }
+    while(capNumCheck != 1)
+    {
+        cout << "Please enter a positive number for number of capacitors" <<endl;
+        cout << "Enter Number of Capacitors:";
+        cin >> capNum;
+        cout << endl;
+        if(capNum >= 0)
+        {
+            capNumCheck = 1;
+        }
+    }
+
+
     cout << "Enter Number of Inductors:";
     cin >> indNum;
+    cout << endl;
+    if(indNum >= 0)
+    {
+        indNumCheck = 1;
+    }
+    while(indNumCheck != 1)
+    {
+        cout << "Please enter a positive number for number of inductors" <<endl;
+        cout << "Enter Number of Inductors:";
+        cin >> indNum;
+        cout << endl;
+        if(indNum >= 0)
+        {
+            indNumCheck = 1;
+        }
+    }
 
     // Used for keeping track of how many times to create nodes
     unsigned nodeNum_copy = 0;
@@ -47,6 +141,7 @@ int main()
     {
         cout << "Enter Node name:";
         cin >> nodeName;
+        cout << endl;
         //nodeList.push_back(new Node(nodeName));
         nodeList.push_back( make_unique<Node>(nodeName) );
         nodeNum_copy++;
@@ -65,22 +160,42 @@ int main()
     double sourceMag = 0;
     double sourcePhase = 0;
 
+    int sourceTypeCheck = 0;
+
     cout << "What type of source" << endl;
     cout << "Enter V for Voltage and I for Current:";
     cin >> sourceType;
+    cout << endl;
+
+    if(sourceType == "V" || sourceType == "I")
+    {
+        sourceTypeCheck = 1;
+    }
+    while(sourceTypeCheck != 1)
+    {
+        cout << "Please Enter valid source type (in capitals):" << endl;
+        cout << "Enter V for Voltage and I for Current:";
+        cin >> sourceType;
+        cout << endl;
+        if(sourceType == "V" || sourceType == "I")
+        {
+            sourceTypeCheck = 1;
+        }
+    }
 
     cout << "Enter Magnitude:";
     cin >> sourceMag;
+    cout << endl;
 
     cout << "Enter Phase (in rad):";
     cin >> sourcePhase;
-
+    cout << endl;
     cout << "Enter positive/forward current Nodes Name:";
     cin >> node1Name;
-
+    cout << endl;
     cout << "Enter negative/reverse current Nodes Name:";
     cin >> node2Name;
-
+    cout << endl;
     for( nodeListItr = nodeList.begin(); nodeListItr != nodeList.end(); nodeListItr++) // get the node for node 1 repeat for node 2
     {
         if (node1Name == (*nodeListItr)->getName() )
@@ -95,7 +210,7 @@ int main()
     if ( (node1.getName() == " ") || (node2.getName() == " ") ) // separate to say what node name failed
     {
         cout << "Node name not recognized";
-        return -5;
+        return -5; // could be a try catch, too late :(
     }
 
     Source* source;
@@ -114,7 +229,7 @@ int main()
     else
     {
         cout << "Bad source type";
-        return -4;
+        return -4; // could be a try catch, still too late :( technically shouldn't happen anyway as it is now caught above
     }
 
     getLoad<Resistor>(resNum, nodeList, resList, "Resistance");
@@ -146,10 +261,10 @@ int main()
     {
         loadMap.insert(pair( (*indListItr)->getNodes() , *(*indListItr)));
     }
-*/
+
      //printLoadMap(loadMap);
 
-
+/*
     // FOR TESTING
     Node N_A("A");
     Node N_B("B");
@@ -186,7 +301,7 @@ int main()
     loadMap.insert( pair(quickNodesC1, Capacitor(N_C, GND, 0.025)));
     loadMap.insert( pair(quickNodesC2, Capacitor(N_B, GND, 0.025)));
     loadMap.insert( pair(quickNodesL1, Inductor(N_C, N_B, 30)));
-
+*/
     cout << "User Inputted: " << endl;
     printLoadMap(loadMap);
 

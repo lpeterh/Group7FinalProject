@@ -38,15 +38,34 @@ void getLoad(unsigned loadNum, list<unique_ptr<Node>>& nodeList, list<unique_ptr
         node1.setName(" "); // Reset the names to ensure they aren't carried over
         node2.setName(" ");
 
+        int loadValCheck = 0;
+
         cout << "Enter " + units + ":";
         cin >> loadVal;
+        cout << endl;
+        if(loadVal >= 0)
+        {
+            loadValCheck = 1;
+        }
+        while(loadValCheck != 1)
+        {
+            cout << units + " can not be negative" << endl;
+            cout << "Enter " + units + ":";
+            cin >> loadVal;
+            cout << endl;
+            if(loadVal >= 0)
+            {
+                loadValCheck = 1;
+            }
+        }
+
 
         cout << "Enter First Nodes Name:";
         cin >> node1Name;
-
+        cout << endl;
         cout << "Enter Second Nodes Name:";
         cin >> node2Name;
-
+        cout << endl;
         for (nodeListItr = nodeList.begin(); nodeListItr != nodeList.end(); nodeListItr++) // get the node for node 1 repeat for node 2
         {
             if (node1Name == (*nodeListItr)->getName()) {
@@ -59,7 +78,7 @@ void getLoad(unsigned loadNum, list<unique_ptr<Node>>& nodeList, list<unique_ptr
         if ((node1.getName() == " ") || (node2.getName() == " ")) // TODO: separate to say what node name failed
         {
             cout << "Node name not recognized";
-            return;
+            return; // could throw an exception
         }
 
         loadList.push_back(make_unique<T>(node1, node2, loadVal)); // Resistor res = Resistor(N1,N2,R);
